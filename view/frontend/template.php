@@ -93,7 +93,17 @@
    var swiper = new Swiper('.swiper-container', {
      slidesPerView: 4,
      spaceBetween: 20,
-     // init: false,
+
+     autoplay: {
+        delay: 2500,
+        disableOnInteraction: true,
+      },
+
+      loop: true,
+
+      keyboard: {
+        enabled: true,
+      },
 
      navigation: {
         nextEl: '.swiper-button-next',

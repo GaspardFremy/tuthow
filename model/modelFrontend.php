@@ -1,42 +1,97 @@
 <?php
+function getSliderTutos()
+{
+    $db = dbConnect();
+
+    $sliderTutos = $db->query('SELECT tutos.*, tutosLevels.tutoLevel, tutosLevels.color, durationTypes.durationType
+    FROM tutos
+    INNER JOIN tutosLevels ON tutos.levelId = tutosLevels.id
+    INNER JOIN tutosLayouts ON tutosLayouts.id = tutos.layoutId
+    INNER JOIN durationTypes ON durationTypes.id = tutos.durationTypeId
+
+    WHERE tutosLayouts.id = 1
+
+    ORDER BY id');
+
+    return $sliderTutos;
+}
+
 function getLargeTuto()
 {
     $db = dbConnect();
-    // $largeTuto = $db->query('SELECT tutos.*, tutosLevels.tutoLevel, tutosLevels.color, durationTypes.durationType
-    // FROM tutos
-    // INNER JOIN tutosLevels ON tutos.levelId = tutosLevels.id
-    // INNER JOIN durationTypes ON tutos.durationTypeId = durationTypes.id
-    // WHERE tutos.id = 1');
-    //
-    // SELECT tutos.title, tutosLevels.tutoLevel, durationTypes.durationType
-    // FROM tutos
-    // INNER JOIN tutosLevels ON tutos.levelId = tutosLevels.id
-    // INNER JOIN durationTypes ON tutos.durationTypeId = durationTypes.id
-    // WHERE tutos.id = 1
 
     $largeTuto = $db->query('SELECT tutos.*, tutosLevels.tutoLevel, tutosLevels.color
     FROM tutos
-    INNER JOIN tutosLevels ON tutos.levelId = tutosLevels.id
+    INNER JOIN tutosLevels ON tutosLevels.id = tutos.levelId
+    INNER JOIN tutosLayouts ON tutosLayouts.id = tutos.layoutId
 
-    WHERE tutos.id = 1');
+    WHERE tutosLayouts.id = 2');
 
     return $largeTuto;
 
 }
 
-function getSliderTutos()
+function getHalfLargeTuto()
 {
     $db = dbConnect();
 
-
-    $sliderTutos = $db->query('SELECT tutos.*, tutosLevels.tutoLevel, tutosLevels.color
+    $halfLargeTuto = $db->query('SELECT tutos.*, tutosLevels.tutoLevel, tutosLevels.color, durationTypes.durationType
     FROM tutos
-    INNER JOIN tutosLevels ON tutos.levelId = tutosLevels.id
-    LIMIT 1,8');
+    INNER JOIN tutosLevels ON tutosLevels.id = tutos.levelId
+    INNER JOIN tutosLayouts ON tutosLayouts.id = tutos.layoutId
+    INNER JOIN durationTypes ON durationTypes.id = tutos.durationTypeId
 
-    return $sliderTutos;
+    WHERE tutosLayouts.id = 3');
 
+    return $halfLargeTuto;
 }
+
+function getQuarterTuto()
+{
+    $db = dbConnect();
+
+    $quarterTuto = $db->query('SELECT tutos.*, tutosLevels.tutoLevel, tutosLevels.color, durationTypes.durationType
+    FROM tutos
+    INNER JOIN tutosLevels ON tutosLevels.id = tutos.levelId
+    INNER JOIN tutosLayouts ON tutosLayouts.id = tutos.layoutId
+    INNER JOIN durationTypes ON durationTypes.id = tutos.durationTypeId
+
+    WHERE tutosLayouts.id = 4');
+
+    return $quarterTuto;
+}
+
+function getHalfQuarterTutos()
+{
+    $db = dbConnect();
+
+    $halfQuarterTutos = $db->query('SELECT tutos.*, tutosLevels.tutoLevel, tutosLevels.color, durationTypes.durationType
+    FROM tutos
+    INNER JOIN tutosLevels ON tutosLevels.id = tutos.levelId
+    INNER JOIN tutosLayouts ON tutosLayouts.id = tutos.layoutId
+    INNER JOIN durationTypes ON durationTypes.id = tutos.durationTypeId
+
+    WHERE tutosLayouts.id = 5');
+
+    return $halfQuarterTutos;
+}
+
+function getScdHalfQuarterTutos()
+{
+    $db = dbConnect();
+
+    $scdHalfQuarterTutos = $db->query('SELECT tutos.*, tutosLevels.tutoLevel, tutosLevels.color
+    FROM tutos
+    INNER JOIN tutosLevels ON tutosLevels.id = tutos.levelId
+    INNER JOIN tutosLayouts ON tutosLayouts.id = tutos.layoutId
+
+    WHERE tutosLayouts.id = 6');
+
+    return $scdHalfQuarterTutos;
+}
+
+
+
 
 
 
