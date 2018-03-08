@@ -1,0 +1,242 @@
+/* /////////*/
+/* MENU NAV */
+/* /////////*/
+
+body {
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    background-color: #fff7e8;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='100%25' gradientTransform='rotate(240)'%3E%3Cstop offset='0' stop-color='%23fff7e8'/%3E%3Cstop offset='1' stop-color='%23ffffff'/%3E%3C/linearGradient%3E%3Cpattern patternUnits='userSpaceOnUse' id='b' width='540' height='450' x='0' y='0' viewBox='0 0 1080 900'%3E%3Cg fill-opacity='0.05'%3E%3Cpolygon fill='%23444' points='90%2C150 0%2C300 180%2C300'/%3E%3Cpolygon points='90%2C150 180%2C0 0%2C0'/%3E%3Cpolygon fill='%23AAA' points='270%2C150 360%2C0 180%2C0'/%3E%3Cpolygon fill='%23DDD' points='450%2C150 360%2C300 540%2C300'/%3E%3Cpolygon fill='%23999' points='450%2C150 540%2C0 360%2C0'/%3E%3Cpolygon points='630%2C150 540%2C300 720%2C300'/%3E%3Cpolygon fill='%23DDD' points='630%2C150 720%2C0 540%2C0'/%3E%3Cpolygon fill='%23444' points='810%2C150 720%2C300 900%2C300'/%3E%3Cpolygon fill='%23FFF' points='810%2C150 900%2C0 720%2C0'/%3E%3Cpolygon fill='%23DDD' points='990%2C150 900%2C300 1080%2C300'/%3E%3Cpolygon fill='%23444' points='990%2C150 1080%2C0 900%2C0'/%3E%3Cpolygon fill='%23DDD' points='90%2C450 0%2C600 180%2C600'/%3E%3Cpolygon points='90%2C450 180%2C300 0%2C300'/%3E%3Cpolygon fill='%23666' points='270%2C450 180%2C600 360%2C600'/%3E%3Cpolygon fill='%23AAA' points='270%2C450 360%2C300 180%2C300'/%3E%3Cpolygon fill='%23DDD' points='450%2C450 360%2C600 540%2C600'/%3E%3Cpolygon fill='%23999' points='450%2C450 540%2C300 360%2C300'/%3E%3Cpolygon fill='%23999' points='630%2C450 540%2C600 720%2C600'/%3E%3Cpolygon fill='%23FFF' points='630%2C450 720%2C300 540%2C300'/%3E%3Cpolygon points='810%2C450 720%2C600 900%2C600'/%3E%3Cpolygon fill='%23DDD' points='810%2C450 900%2C300 720%2C300'/%3E%3Cpolygon fill='%23AAA' points='990%2C450 900%2C600 1080%2C600'/%3E%3Cpolygon fill='%23444' points='990%2C450 1080%2C300 900%2C300'/%3E%3Cpolygon fill='%23222' points='90%2C750 0%2C900 180%2C900'/%3E%3Cpolygon points='270%2C750 180%2C900 360%2C900'/%3E%3Cpolygon fill='%23DDD' points='270%2C750 360%2C600 180%2C600'/%3E%3Cpolygon points='450%2C750 540%2C600 360%2C600'/%3E%3Cpolygon points='630%2C750 540%2C900 720%2C900'/%3E%3Cpolygon fill='%23444' points='630%2C750 720%2C600 540%2C600'/%3E%3Cpolygon fill='%23AAA' points='810%2C750 720%2C900 900%2C900'/%3E%3Cpolygon fill='%23666' points='810%2C750 900%2C600 720%2C600'/%3E%3Cpolygon fill='%23999' points='990%2C750 900%2C900 1080%2C900'/%3E%3Cpolygon fill='%23999' points='180%2C0 90%2C150 270%2C150'/%3E%3Cpolygon fill='%23444' points='360%2C0 270%2C150 450%2C150'/%3E%3Cpolygon fill='%23FFF' points='540%2C0 450%2C150 630%2C150'/%3E%3Cpolygon points='900%2C0 810%2C150 990%2C150'/%3E%3Cpolygon fill='%23222' points='0%2C300 -90%2C450 90%2C450'/%3E%3Cpolygon fill='%23FFF' points='0%2C300 90%2C150 -90%2C150'/%3E%3Cpolygon fill='%23FFF' points='180%2C300 90%2C450 270%2C450'/%3E%3Cpolygon fill='%23666' points='180%2C300 270%2C150 90%2C150'/%3E%3Cpolygon fill='%23222' points='360%2C300 270%2C450 450%2C450'/%3E%3Cpolygon fill='%23FFF' points='360%2C300 450%2C150 270%2C150'/%3E%3Cpolygon fill='%23444' points='540%2C300 450%2C450 630%2C450'/%3E%3Cpolygon fill='%23222' points='540%2C300 630%2C150 450%2C150'/%3E%3Cpolygon fill='%23AAA' points='720%2C300 630%2C450 810%2C450'/%3E%3Cpolygon fill='%23666' points='720%2C300 810%2C150 630%2C150'/%3E%3Cpolygon fill='%23FFF' points='900%2C300 810%2C450 990%2C450'/%3E%3Cpolygon fill='%23999' points='900%2C300 990%2C150 810%2C150'/%3E%3Cpolygon points='0%2C600 -90%2C750 90%2C750'/%3E%3Cpolygon fill='%23666' points='0%2C600 90%2C450 -90%2C450'/%3E%3Cpolygon fill='%23AAA' points='180%2C600 90%2C750 270%2C750'/%3E%3Cpolygon fill='%23444' points='180%2C600 270%2C450 90%2C450'/%3E%3Cpolygon fill='%23444' points='360%2C600 270%2C750 450%2C750'/%3E%3Cpolygon fill='%23999' points='360%2C600 450%2C450 270%2C450'/%3E%3Cpolygon fill='%23666' points='540%2C600 630%2C450 450%2C450'/%3E%3Cpolygon fill='%23222' points='720%2C600 630%2C750 810%2C750'/%3E%3Cpolygon fill='%23FFF' points='900%2C600 810%2C750 990%2C750'/%3E%3Cpolygon fill='%23222' points='900%2C600 990%2C450 810%2C450'/%3E%3Cpolygon fill='%23DDD' points='0%2C900 90%2C750 -90%2C750'/%3E%3Cpolygon fill='%23444' points='180%2C900 270%2C750 90%2C750'/%3E%3Cpolygon fill='%23FFF' points='360%2C900 450%2C750 270%2C750'/%3E%3Cpolygon fill='%23AAA' points='540%2C900 630%2C750 450%2C750'/%3E%3Cpolygon fill='%23FFF' points='720%2C900 810%2C750 630%2C750'/%3E%3Cpolygon fill='%23222' points='900%2C900 990%2C750 810%2C750'/%3E%3Cpolygon fill='%23222' points='1080%2C300 990%2C450 1170%2C450'/%3E%3Cpolygon fill='%23FFF' points='1080%2C300 1170%2C150 990%2C150'/%3E%3Cpolygon points='1080%2C600 990%2C750 1170%2C750'/%3E%3Cpolygon fill='%23666' points='1080%2C600 1170%2C450 990%2C450'/%3E%3Cpolygon fill='%23DDD' points='1080%2C900 1170%2C750 990%2C750'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='100%25' height='100%25'/%3E%3Crect x='0' y='0' fill='url(%23b)' width='100%25' height='100%25'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+
+
+.col-1 {
+    max-width: 6.333333%;
+}
+
+.pdg-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.pdg-10 {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+
+.menu-nav {
+    background-image: linear-gradient(-180deg, #66D5AA 0%, #2EBCB2 100%, #2BBBB2 100%);
+    width: 70px;
+    list-style: none;
+    height: 100%;
+    float: left;
+    position: fixed;
+    transition: 0.3s;
+    transition-timing-function: ease;
+}
+
+.special-blue {
+    background-image: linear-gradient(-180deg, #66D5AA 0%, #2EBCB2 100%, #2BBBB2 100%);
+}
+
+.main-nav ul {
+    margin-top: 30px;
+    text-decoration: none;
+    list-style-type: none;
+    padding: 0;
+}
+
+.main-nav ul li {
+    margin-top: 3rem;
+}
+
+.icon-menu:hover {
+    animation-duration: 0.2;
+}
+
+.icon-menu {
+    width: 20px;
+    float: left;
+}
+
+.menu-title {
+    float: left;
+    color: white;
+    font-size: 17px;
+    opacity: 0;
+    display: none;
+    transition: visibility 1s, opacity 1s linear;
+
+}
+
+/* HOVER MENU EFFECT */
+
+.menu-nav .menu-title {
+
+    opacity: 1;
+}
+
+.logo {
+    margin-top: 20px;
+    width: 45px;
+}
+
+.responsive-nav {
+    display: none;
+}
+
+
+
+
+@media screen and (max-width: 990px) {
+    .responsive-nav {
+        display:block;
+    }
+
+    .main-nav {
+        display: none;
+    }
+}
+
+/* Bounce In effect */
+.hvr-bounce-in {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+.hvr-bounce-in:hover, .hvr-bounce-in:focus, .hvr-bounce-in:active {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}
+
+/* /////////////*/
+/* END MENU NAV */
+/* /////////////*/
+
+.category-title  {
+    margin-top: 14px;
+    margin-bottom: 0px;
+    font-size: 17px;
+}
+
+.category-title2  {
+    margin-top: 0px;
+    margin-bottom: 14px;
+    font-size: 17px;
+}
+
+.card-block {
+    font-size: 14px;
+    padding: 10px;
+}
+
+.img-container {
+    position: relative;
+}
+
+.bookmarked-icon {
+    color: #66D5AA;
+    font-size: 30px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+.card-title {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.level {
+    font-weight: bold;
+}
+
+.light-green {
+    color: #6EA72F;
+}
+
+.green {
+    color: #6EA72F;
+}
+
+.orange {
+    color: #D68A0E;
+}
+
+.dark-orange {
+    color: #D66A0E;
+}
+
+.red {
+    color: #C40F0F;
+}
+
+.dark-red {
+    color: #A10C0C;
+}
+
+.card-text {
+    color: #555555;
+    line-height: 22px;
+}
+
+.upvote, .time {
+    color: #9B9B9B;
+}
+
+/* CARD */
+.card {
+  overflow: hidden;
+  border: 1px solid #66D5AA;
+  transition: 1s;
+  transition-timing-function: ease;
+}
+
+.card:focus,
+.card:hover {
+     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+
+}
+
+.card-inverse .card-img-overlay {
+  background-color: rgba(51, 51, 51, 0.85);
+  border-color: rgba(51, 51, 51, 0.85);
+}
+
+.lg-card .card-img-top {
+    width: 100%;
+    height: 14vw;
+    object-fit: cover;
+}
+
+
+/* SWIPER */
+.swiper-container {
+    height: 100%;
+    max-height: 358px;
+}
+.swiper-slide {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
