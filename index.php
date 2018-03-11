@@ -73,5 +73,9 @@ try {
     }
 }
 catch(Exception $e) {
-    echo 'Erreur : ' . $e->getMessage();
+    $msgError = $e->getMessage();
+
+    require 'view/frontend/msgError.php';
+    
+
 }
