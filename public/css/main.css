@@ -9,6 +9,11 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 
     }
 
+a, a:hover {
+    color: #565656;
+    text-decoration: none;
+}
+
 
 
 .col-1 {
@@ -157,7 +162,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 }
 
 .level {
-    
+
 }
 
 .light-green {
@@ -200,7 +205,6 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     border: none;
     transition: 1s;
     transition-timing-function: ease;
-
     box-sizing: border-box;
 }
 

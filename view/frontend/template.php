@@ -14,6 +14,7 @@
     <!-- CSS link -->
     <link rel="stylesheet" href="./public/css/swiper.css">
     <link rel="stylesheet" href="./public/css/main.css">
+    <link rel="stylesheet" href="./public/css/tuto.css">
 
 
 
@@ -22,16 +23,16 @@
 <body>
 
     <nav class="main-nav navbar sticky-top menu-nav align-items-center">
-        <a href="#"><img src="./public/img/logowhite.png" class="logo" alt=""></a>
+        <a href="./index.php?action=home"><img src="./public/img/logowhite.png" class="logo" alt=""></a>
         <ul class="d-flex flex-column align-items-space mb-auto">
-            <li class="d-flex align-items-center"><a href="#"><img src="./public/img/icon/iconSearch.png" class="icon-menu hvr-bounce-in"alt=""> <span class="ml-2 menu-title"> Recherche </span></li></a>
-            <li class="d-flex align-items-center"><a href="#"><img src="./public/img/icon/iconHome.png" class="icon-menu hvr-bounce-in"alt=""> <span class="ml-2 menu-title">Accueil </span></li></a>
-            <li class="d-flex align-items-center"><a href="#"><img src="./public/img/icon/iconTag.png" class="icon-menu hvr-bounce-in"alt=""> <span class="ml-2 menu-title">Catégories </span></li></a>
+            <li class="d-flex align-items-center"><a href="./index.php?action=advanceSearch"><img src="./public/img/icon/iconSearch.png" class="icon-menu hvr-bounce-in"alt=""> <span class="ml-2 menu-title"> Recherche </span></li></a>
+            <li class="d-flex align-items-center"><a href="./index.php?action=home"><img src="./public/img/icon/iconHome.png" class="icon-menu hvr-bounce-in"alt=""> <span class="ml-2 menu-title">Accueil </span></li></a>
+            <li class="d-flex align-items-center"><a href="./index.php?action=category"><img src="./public/img/icon/iconTag.png" class="icon-menu hvr-bounce-in"alt=""> <span class="ml-2 menu-title">Catégories </span></li></a>
         <!-- </ul>
         <ul class="d-flex flex-column align-items-bottom mb-auto"> -->
-            <li class="d-flex align-items-center"><a href="#"><img src="./public/img/icon/iconPencil.png" class="icon-menu hvr-bounce-in"alt=""></a> <span class="ml-2 menu-title"> Écrire un tuto </span></li>
-            <li class="d-flex align-items-center"><a href="#"><img src="./public/img/icon/iconFav.png" class="icon-menu hvr-bounce-in"alt=""></a> <span class="ml-2 menu-title"> Favoris </span></li>
-            <li class="d-flex align-items-center"><a href="#"><img src="./public/img/icon/iconProfil.png" class="icon-menu hvr-bounce-in"alt=""></a> <span class="ml-2 menu-title"> Profil </span></li>
+            <li class="d-flex align-items-center"><a href="./index.php?action=addTuto"><img src="./public/img/icon/iconPencil.png" class="icon-menu hvr-bounce-in"alt=""></a> <span class="ml-2 menu-title"> Écrire un tuto </span></li>
+            <li class="d-flex align-items-center"><a href="./index.php?action=bookmarked"><img src="./public/img/icon/iconFav.png" class="icon-menu hvr-bounce-in"alt=""></a> <span class="ml-2 menu-title"> Favoris </span></li>
+            <li class="d-flex align-items-center"><a href="./index.php?action=profile"><img src="./public/img/icon/iconProfil.png" class="icon-menu hvr-bounce-in"alt=""></a> <span class="ml-2 menu-title"> Profil </span></li>
         </ul>
     </nav>
 
@@ -48,7 +49,7 @@
                 <br>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Profil</a>
+                    <a class="nav-link" href="./index.php?action=profil">Profil</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Favoris</a>
@@ -95,7 +96,7 @@
      spaceBetween: 20,
 
      autoplay: {
-        delay: 2500,
+        delay: 5500,
         disableOnInteraction: true,
       },
 

@@ -1,35 +1,75 @@
 <?php
+require('controller/controllerBackend.php');
 require('controller/controllerFrontend.php');
 
 try {
     if (isset($_GET['action'])) {
-        if ($_GET['action'] == 'listPosts') {
-            listPosts();
+        //FRONTEND PAGES
+        if ($_GET['action'] == 'home') {
+            accueil();
         }
-        elseif ($_GET['action'] == 'post') {
+
+        elseif ($_GET['action'] == 'tuto') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                post();
+                tuto();
             }
             else {
-                throw new Exception('Aucun identifiant de billet envoyé');
+                throw new Exception('no tuto id');
             }
         }
+
+        elseif ($_GET['action'] == 'bookmarked'){
+            bookmarked();
+        }
+
+        elseif ($_GET['action'] == 'myTuto'){
+            myTuto();
+        }
+
+        elseif ($_GET['action'] == 'category') {
+            category();
+        }
+
+        elseif ($_GET['action'] == 'profile'){
+            if(empty($_SESSION['userId'])){
+                signin();
+            }
+            else {
+                profile();
+            }
+
+        }
+
+
+        //BACKEND PAGES
+        elseif ($_GET['action'] == 'signin'){
+            signin();
+        }
+
+        elseif ($_GET['action'] == 'advanceSearch'){
+            advanceSearch();
+        }
+
+        elseif ($_GET['action'] == 'addTuto'){
+            addTuto();
+        }
+
         elseif ($_GET['action'] == 'addComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
                     addComment($_GET['id'], $_POST['author'], $_POST['comment']);
                 }
                 else {
-                    throw new Exception('Tous les champs ne sont pas remplis !');
+                    throw new Exception('empty field');
                 }
             }
             else {
-                throw new Exception('Aucun identifiant de billet envoyé');
+                throw new Exception('no tuto id');
             }
         }
     }
     else {
-        accueil();
+        error404();
     }
 }
 catch(Exception $e) {

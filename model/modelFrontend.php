@@ -1,4 +1,7 @@
 <?php
+
+// HOMEPAGE
+
 function getSliderTutos()
 {
     $db = dbConnect();
@@ -91,6 +94,23 @@ function getScdHalfQuarterTutos()
 }
 
 
+// TUTO
+
+function getTuto($tutoId)
+{
+    $db = dbConnect();
+    $req = $db->prepare('SELECT tutos.*, tutosLevels.tutoLevel, tutosLevels.color
+    FROM tutos
+    INNER JOIN tutosLevels ON tutosLevels.id = tutos.levelId
+    INNER JOIN tutosLayouts ON tutosLayouts.id = tutos.layoutId
+
+    WHERE tutos.id = ?');
+
+    $req->execute(array($tutoId));
+    $tuto = $req->fetch();
+
+    return $tuto;
+}
 
 
 
