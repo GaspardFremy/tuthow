@@ -113,6 +113,24 @@ function getTuto($tutoId)
     return $tuto;
 }
 
+function getComments($tutoId)
+{
+    $db = dbConnect();
+    $comments = $db->prepare('SELECT id, pseudo, comment, DATE_FORMAT(commentDate, \'%d/%m/%Y à %Hh%imin%ss\') AS commentDateFr FROM comments WHERE tutoId = ? ORDER BY commentDate DESC');
+    $comments->execute(array($tutoId));
+
+    return $comments;
+}
+
+function postComment($tutoId, $pseudo, $comment)
+{
+    $db = dbConnect();
+    $comments = $db->prepare('INSERT INTO comments(tutoId, pseudo, comment, commentDate) VALUES(?, ?, ?, NOW())');
+    $affectedLines = $comments->execute(array($tutoId, $pseudo, $comment));
+
+    return $affectedLines;
+}
+
 
 
 

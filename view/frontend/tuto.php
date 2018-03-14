@@ -16,6 +16,29 @@
         <h3><?= $tuto['title']?></h3>
         <h5><?= $tuto['description']?></h5>
 
+
+        <h2>Commentaires</h2>
+
+        <form action="./index.php?action=addComment&id=<?=$tuto['id']?>&pseudo=<?= $_SESSION['pseudo']?>" method="post">
+            <div>
+                <label for="comment">Commentaire</label><br />
+                <textarea id="comment" name="comment"></textarea>
+            </div>
+            <div>
+                <input type="submit"/>
+            </div>
+        </form>
+
+        <?php
+        while ($comment = $comments->fetch())
+        {
+        ?>
+            <p><strong><?= htmlspecialchars($comment['pseudo']) ?></strong> le <?= $comment['commentDateFr'] ?></p>
+            <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+        <?php
+        }
+        ?>
+
     </div>
 </div>
 

@@ -18,8 +18,21 @@ function accueil()
 function tuto()
 {
     $tuto = getTuto($_GET['id']);
+    $comments = getComments($_GET['id']);
 
     require('view/frontend/tuto.php');
+}
+
+function addComment($tutoId, $pseudo, $comment)
+{
+    $affectedLines = postComment($tutoId, $pseudo, $comment);
+
+    if ($affectedLines === false) {
+        throw new Exception('Impossible d\'ajouter le commentaire !');
+    }
+    else {
+        header('Location: index.php?action=tuto&id=' . $tutoId);
+    }
 }
 
 function myTuto()
