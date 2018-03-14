@@ -23,10 +23,11 @@ function getLargeTuto()
 {
     $db = dbConnect();
 
-    $largeTuto = $db->query('SELECT tutos.*, tutosLevels.tutoLevel, tutosLevels.color
+    $largeTuto = $db->query('SELECT tutos.*, tutosLevels.tutoLevel, tutosLevels.color, durationTypes.durationType
     FROM tutos
     INNER JOIN tutosLevels ON tutosLevels.id = tutos.levelId
     INNER JOIN tutosLayouts ON tutosLayouts.id = tutos.layoutId
+    INNER JOIN durationTypes ON durationTypes.id = tutos.durationTypeId
 
     WHERE tutosLayouts.id = 2');
 

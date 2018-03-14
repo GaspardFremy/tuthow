@@ -9,12 +9,8 @@
     </div>
     <div class="col-md-11 col-sm-12 body-container">
 
-    <h1>Profil</h1>
-
-    <h2>Bienvenu sur votre profil, <?php echo $_SESSION['pseudo']; ?>  </h2>
-
-    <a href="./controller/logout.php"><button type="button" class="btn btn-outline-danger">se déconnecter</button></a>
-
+    <h1>Bravo</h1>
+    <h3>Vous êtes désormais inscris!</h3>
     </div>
 </div>
 

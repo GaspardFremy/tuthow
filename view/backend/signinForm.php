@@ -27,7 +27,52 @@
         <div class="col-md-11 col-sm-12 body-container">
 
         <h1>Connexion/Inscription</h1>
-        
+
+        <form class="form-signin my-5" action="./controller/signin.php" method="post" >
+
+        <h2 class="form-signin-heading">Créer un compte</h2>
+
+        <label for="inputEmail" class="sr-only">Addresse mail</label>
+        <input type="text" class="form-control" name="email" placeholder="Email address" required value="<?php if(isset($_GET['email'])){echo $_GET['email'];}?>">
+
+        <label for="inputPseudo" class="sr-only">Pseudo</label>
+        <input type="text" class="form-control" name="pseudo" placeholder="Pseudo" required value="<?php if(isset($_GET['pseudo'])){echo $_GET['pseudo'];}?>">
+
+        <label for="inputPassword" class="sr-only">Mot de passe</label>
+        <input type="password" class="form-control" name="password" placeholder="Mot de passe" required value="<?php if(isset($password)){echo $_POST['password'];}?>">
+
+        <label for="inputPassword" class="sr-only">Confirmation mot de passe</label>
+        <input type="password" class="form-control" name="confirm_password" placeholder="Confirmer le mot de passe" required value="<?php if(isset($confirm_password)){echo $_POST['confirm_password'];}?>">
+
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" name="form_signin" type="submit">S'inscrire</button>
+    </form>
+
+
+
+      <?php if(isset($_GET['error']) AND !empty($_GET['error'])){?>
+        <div class="alert alert-danger" role="alert"><?php
+            echo $_GET['error'];?>
+        </div><?php
+        }?>
+
+
+
+
+    <form class="form-signin my-5" method="post" action='./controller/login.php'>
+        <h2 class="form-signin-heading">Connectez vous</h2>
+        <label for="inputEmail" class="sr-only">addresse mail</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="login_email" value="<?php if(isset($_GET['login_email'])){echo $_GET['login_email'];}?>" required autofocus>
+        <label for="inputPassword" class="sr-only">mot de passe</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="login_password" required>
+        <div class="checkbox">
+        <label>
+        <input type="checkbox" value="remember-me"> Remember me
+        </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" name="form-login" type="submit">Sign in</button>
+    </form>
+
         <a href="./index.php?action=home">retour à l'accueil</a>
 
         </div>

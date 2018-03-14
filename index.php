@@ -1,3 +1,4 @@
+<?php session_start();  ?>
 <?php
 require('controller/controllerBackend.php');
 require('controller/controllerFrontend.php');
@@ -31,19 +32,33 @@ try {
         }
 
         elseif ($_GET['action'] == 'profile'){
-            if(empty($_SESSION['userId'])){
-                signin();
+            if(empty($_SESSION['id'])){
+                signinForm();
             }
             else {
                 profile();
             }
-
         }
 
+        elseif ($_GET['action'] == 'signinForm'){
+            signinForm();
+        }
 
         //BACKEND PAGES
+        elseif ($_GET['action'] == 'signed'){
+            signed();
+        }
+
+        elseif ($_GET['action'] == 'connected') {
+            connected();
+        }
+
+        elseif ($_GET['action'] == 'logout') {
+            logout();
+        }
+
         elseif ($_GET['action'] == 'signin'){
-            signin();
+            signinForm();
         }
 
         elseif ($_GET['action'] == 'advanceSearch'){
@@ -54,19 +69,19 @@ try {
             addTuto();
         }
 
-        elseif ($_GET['action'] == 'addComment') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-                    addComment($_GET['id'], $_POST['author'], $_POST['comment']);
-                }
-                else {
-                    throw new Exception('empty field');
-                }
-            }
-            else {
-                throw new Exception('no tuto id');
-            }
-        }
+        // elseif ($_GET['action'] == 'addComment') {
+        //     if (isset($_GET['id']) && $_GET['id'] > 0) {
+        //         if (!empty($_POST['author']) && !empty($_POST['comment'])) {
+        //             addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+        //         }
+        //         else {
+        //             throw new Exception('empty field');
+        //         }
+        //     }
+        //     else {
+        //         throw new Exception('no tuto id');
+        //     }
+        // }
     }
     else {
         error404();
@@ -76,6 +91,4 @@ catch(Exception $e) {
     $msgError = $e->getMessage();
 
     require 'view/frontend/msgError.php';
-    
-
 }

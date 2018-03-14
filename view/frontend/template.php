@@ -32,7 +32,7 @@
         <ul class="d-flex flex-column align-items-bottom mb-auto"> -->
             <li class="d-flex align-items-center"><a href="./index.php?action=addTuto"><img src="./public/img/icon/iconPencil.png" class="icon-menu hvr-bounce-in"alt=""></a> <span class="ml-2 menu-title"> Écrire un tuto </span></li>
             <li class="d-flex align-items-center"><a href="./index.php?action=bookmarked"><img src="./public/img/icon/iconFav.png" class="icon-menu hvr-bounce-in"alt=""></a> <span class="ml-2 menu-title"> Favoris </span></li>
-            <li class="d-flex align-items-center"><a href="./index.php?action=profile"><img src="./public/img/icon/iconProfil.png" class="icon-menu hvr-bounce-in"alt=""></a> <span class="ml-2 menu-title"> Profil </span></li>
+            <li class="d-flex align-items-center"><a href="./index.php?action=profile"><img src="./public/img/icon/iconProfil.png" class="icon-menu hvr-bounce-in"alt=""></a> <span class="ml-2 menu-title"> <?php if(isset($_SESSION['pseudo'])){echo $_SESSION['pseudo'];}else{ echo 'Profil';} ?>  </span></li>
         </ul>
     </nav>
 
