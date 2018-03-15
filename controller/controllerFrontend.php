@@ -19,6 +19,9 @@ function tuto()
 {
     $tuto = getTuto($_GET['id']);
     $comments = getComments($_GET['id']);
+    $like = getLikes($_GET['id']);
+    $dislike = getDislikes($_GET['id']);
+
 
     require('view/frontend/tuto.php');
 }
@@ -33,6 +36,11 @@ function addComment($tutoId, $pseudo, $comment)
     else {
         header('Location: index.php?action=tuto&id=' . $tutoId);
     }
+}
+
+function likeTuto($tutoId, $userId)
+{
+
 }
 
 function myTuto()

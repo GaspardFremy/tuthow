@@ -31,11 +31,11 @@ if (isset($_POST['form-login']))
   {
 
       session_start();
-      $_SESSION['id'] = $resultat['id'];
+      $_SESSION['userId'] = $resultat['id'];
       $_SESSION['pseudo'] = $resultat['pseudo'];
 
 
-     
+
       // header('Location : ../index.php?action=connected');
 
       //Gros bugg avec le header location, on effectu la redirection en js.

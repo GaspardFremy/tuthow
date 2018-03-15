@@ -113,6 +113,28 @@ function getTuto($tutoId)
     return $tuto;
 }
 
+function getLikes($tutoId)
+{
+    $db = dbConnect();
+    $likes= $db->prepare('SELECT id
+    FROM likes WHERE tutoId = ?');
+    $likes->execute(array($tutoId));
+    $like = $likes->rowCount();
+
+    return $like;
+}
+
+function getDislikes($tutoId)
+{
+    $db = dbConnect();
+    $dislikes= $db->prepare('SELECT id
+    FROM dislikes WHERE tutoId = ?');
+    $dislikes->execute(array($tutoId));
+    $dislike = $dislikes->rowCount();
+
+    return $dislike;
+}
+
 function getComments($tutoId)
 {
     $db = dbConnect();

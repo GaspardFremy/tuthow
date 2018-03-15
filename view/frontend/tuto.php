@@ -9,7 +9,7 @@
     <div class="col-1 no-gutter">
 
     </div>
-    <div class="col-md-11 col-sm-12 body-container">
+    <div class="col-md-11 col-sm-12 body-container text-center">
 
         <div class="header-img-container" style="background-image: url('./public/img/tutos-header-img/<?= $tuto['id']?>.jpg');">
 
@@ -18,13 +18,33 @@
         <h3><?= $tuto['title']?></h3>
         <h5><?= $tuto['description']?></h5>
 
+        <hr><hr><hr>
         <h6>ce tuto vous à été utile?</h6>
 
 
-        <div class="thumbs-up-icon">
-            <i class="fa far fa-thumbs-up"></i>
+        <div class="d-flex align-items-center">
+            <a href="./controller/likeDislike.php?action=like&tutoId=<?= $tuto['id']?>&userId=<?= $_SESSION['userId']?>">
+                <div class="thumbs-up-icon mx-2">
+                    <i class="fa far fa-thumbs-up"></i>
+                </div>
+            </a>
+
+            <div class="nb-likes">
+                <?= $like?>
+            </div>
+
+            <a href="./controller/likeDislike.php?action=dislike&tutoId=<?= $tuto['id']?>&userId=<?= $_SESSION['userId']?>">
+                <div class="thumbs-down-icon mx-2 ml-5">
+                    <i class="fa far fa-thumbs-down"></i>
+                </div>
+            </a>
+
+            <div class="nb-dislikes">
+                <?= $dislike?>
+            </div>
         </div>
 
+        <hr><hr>
 
         <h2>Commentaires</h2>
 
