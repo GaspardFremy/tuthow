@@ -14,7 +14,7 @@
     <!-- CSS link -->
     <link rel="stylesheet" href="./public/css/swiper.css">
     <link rel="stylesheet" href="./public/css/main.css">
-    <link rel="stylesheet" href="./public/css/tuto.css">
+    <?php if(isset($css)){echo $css;}?>
 
 
 
@@ -77,6 +77,45 @@
             </ul>
         </div>
     </nav>
+
+
+    <!-- LOGIN POP UP -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Vous devez être connecté</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <!-- MAIL FORM -->
+                <div class="modal-body">
+                    <form action="./controller/login.php" method="post">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Addresse mail</label>
+                            <input type="email" class="form-control" name="login_email" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Mot de passe</label>
+                            <input type="password" class="form-control" name="login_password" id="exampleInputPassword1">
+                            <small id="emailHelp" class="form-text text-muted"><a href="#">mot de passe oublié</a></small>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input"> se souvenir de moi
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-success mx-auto" name="form-login">se connecter</button>
+                        <hr>
+                        <h5 class="modal-title" id="exampleModalLabel">Ou créez un compte</h5>
+                        <button type="alerte" class="btn btn-primary">s'inscrire</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <?= $content ?>
 

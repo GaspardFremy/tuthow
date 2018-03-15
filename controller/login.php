@@ -35,7 +35,7 @@ if (isset($_POST['form-login']))
       $_SESSION['pseudo'] = $resultat['pseudo'];
 
 
-
+     
       // header('Location : ../index.php?action=connected');
 
       //Gros bugg avec le header location, on effectu la redirection en js.

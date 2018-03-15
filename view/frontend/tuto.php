@@ -1,4 +1,6 @@
 <?php $title = 'tuto'; ?>
+<?php $css = '<link rel="stylesheet" href="./public/css/tuto.css">'; ?>
+
 
 <?php ob_start(); ?>
 
@@ -16,6 +18,13 @@
         <h3><?= $tuto['title']?></h3>
         <h5><?= $tuto['description']?></h5>
 
+        <h6>ce tuto vous à été utile?</h6>
+
+
+        <div class="thumbs-up-icon">
+            <i class="fa far fa-thumbs-up"></i>
+        </div>
+
 
         <h2>Commentaires</h2>
 
@@ -24,9 +33,11 @@
                 <label for="comment">Commentaire</label><br />
                 <textarea id="comment" name="comment"></textarea>
             </div>
+
             <div>
-                <input type="submit"/>
+                <input type="submit" data-toggle="modal" data-target="#exampleModal"/>
             </div>
+
         </form>
 
         <?php
