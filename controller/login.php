@@ -41,7 +41,7 @@ if (isset($_POST['form-login']))
       //Gros bugg avec le header location, on effectu la redirection en js.
       ?>
         <script type="text/javascript">
-        window.location.href = '../index.php?action=connected';
+        window.location.href = '../index.php?action=profile';
         </script>
       <?php
     }

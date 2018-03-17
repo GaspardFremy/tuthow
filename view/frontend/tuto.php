@@ -19,13 +19,18 @@
         <h5><?= $tuto['description']?></h5>
 
         <hr><hr><hr>
-        <h6>ce tuto vous à été utile?</h6>
+        <h6>Was this tuto usefull?</h6>
 
 
         <div class="d-flex align-items-center">
             <a href="./controller/likeDislike.php?action=like&tutoId=<?= $tuto['id']?>&userId=<?= $_SESSION['userId']?>">
                 <div class="thumbs-up-icon mx-2">
-                    <i class="fa far fa-thumbs-up"></i>
+                    <i class=" <?php if(isset($_GET['state']) && $_GET['state'] == 'liked')
+                    {
+                        echo "fa fal fa-thumbs-up ";
+                    } else{
+                        echo 'fa far fa-thumbs-up';
+                    }; ?>"></i>
                 </div>
             </a>
 
@@ -35,7 +40,12 @@
 
             <a href="./controller/likeDislike.php?action=dislike&tutoId=<?= $tuto['id']?>&userId=<?= $_SESSION['userId']?>">
                 <div class="thumbs-down-icon mx-2 ml-5">
-                    <i class="fa far fa-thumbs-down"></i>
+                    <i class=" <?php if(isset($_GET['state']) && $_GET['state'] == 'disliked')
+                    {
+                        echo "fa fal fa-thumbs-down ";
+                    } else{
+                        echo 'fa far fa-thumbs-down';
+                    }; ?>"></i>
                 </div>
             </a>
 
@@ -46,11 +56,11 @@
 
         <hr><hr>
 
-        <h2>Commentaires</h2>
+        <h2>Comments</h2>
 
         <form action="./index.php?action=addComment&id=<?=$tuto['id']?>&pseudo=<?= $_SESSION['pseudo']?>" method="post">
             <div>
-                <label for="comment">Commentaire</label><br />
+                <label for="comment">Comments</label><br />
                 <textarea id="comment" name="comment"></textarea>
             </div>
 

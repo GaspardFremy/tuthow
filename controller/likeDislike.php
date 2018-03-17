@@ -8,6 +8,7 @@ if (isset($_GET['action'], $_GET['userId'], $_GET['tutoId']) AND !empty($_GET['a
 
     $articleExist = $db->prepare('SELECT id FROM tutos WHERE id = ?');
     $articleExist->execute(array($tutoId));
+    $state = "";
 
 
     if ($articleExist -> rowCount() == 1){
@@ -27,6 +28,7 @@ if (isset($_GET['action'], $_GET['userId'], $_GET['tutoId']) AND !empty($_GET['a
             else {
                 $insert = $db->prepare('INSERT INTO likes (tutoId, userId) VALUES (?,?)');
                 $insert->execute(array($tutoId, $userId));
+                $state = "liked";
             }
 
 
@@ -46,11 +48,12 @@ if (isset($_GET['action'], $_GET['userId'], $_GET['tutoId']) AND !empty($_GET['a
             else {
                 $insert = $db->prepare('INSERT INTO dislikes (tutoId, userId) VALUES (?,?)');
                 $insert->execute(array($tutoId, $userId));
+                $state = "disliked";
             }
 
         }
 
-        header('location: ../index.php?action=tuto&id=' . $tutoId);
+        header('location: ../index.php?action=tuto&id=' . $tutoId . '&state=' . $state);
     }
 }
 

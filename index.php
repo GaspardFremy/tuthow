@@ -20,7 +20,13 @@ try {
         }
 
         elseif ($_GET['action'] == 'bookmarked'){
-            bookmarked();
+            if(empty($_SESSION['userId'])){
+                signinForm();
+            }
+            else {
+                bookmarked($_SESSION['userId']);
+            }
+
         }
 
         elseif ($_GET['action'] == 'myTuto'){
@@ -32,7 +38,7 @@ try {
         }
 
         elseif ($_GET['action'] == 'profile'){
-            if(empty($_SESSION['id'])){
+            if(empty($_SESSION['userId'])){
                 signinForm();
             }
             else {

@@ -12,6 +12,7 @@ function accueil()
     $halfQuarterTutos = getHalfQuarterTutos();
     $scdHalfQuarterTutos = getScdHalfQuarterTutos();
 
+
     require('view/frontend/accueil.php');
 }
 
@@ -38,18 +39,14 @@ function addComment($tutoId, $pseudo, $comment)
     }
 }
 
-function likeTuto($tutoId, $userId)
-{
-
-}
-
 function myTuto()
 {
     require('view/frontend/myTuto.php');
 }
 
-function bookmarked()
+function bookmarked($userId)
 {
+    $bookmarkedTutos = getBookmarkedTutos($userId);
     require('view/frontend/bookmarked.php');
 }
 

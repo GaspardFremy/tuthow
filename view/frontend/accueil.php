@@ -16,13 +16,22 @@
 
                 {?>
                     <div class="swiper-slide">
+
                         <!-- Card -->
                         <article class="card animated">
                             <div class="img-container">
                                 <img class="card-img-top card-img-rounded img-fluid" src="./public/img/tutos-header-img/<?= htmlspecialchars($data['id'])?>.jpg"/>
-                                <div class="position-absolute bookmarked-icon" style="top : 0px; z-index:1000;">
-                                    <i class="fa far fa-bookmark "></i>
-                                </div>
+                                <a <?php if (!isset($_SESSION['userId'])){echo 'data-toggle="modal" data-target="#exampleModal"';}?> href="./controller/bookmark.php?action=bookmark&tutoId=<?= $data['id']?>&userId=<?= $_SESSION['userId']?>">
+                                    <div class="position-absolute bookmarked-icon" style="top : 0px; z-index:1000;">
+                                        <?php if(isset($data['bookmark'])){
+                                            echo '<i class="fa fal fa-bookmark"></i>';
+                                        }
+                                        else {
+                                            echo '<i class="fa far fa-bookmark"></i>';
+                                        }
+                                        ?>
+                                    </div>
+                                </a>
                             </div>
                             <a href="index.php?action=tuto&id=<?= $data['id']?>">
                                 <div class="card-block">
@@ -60,9 +69,18 @@
 
                     <div class="img-container">
                         <img class="card-img-top card-img-rounded img-fluid" src="./public/img/tutos-header-img/<?= htmlspecialchars($data['id'])?>.jpg"/>
-                        <div class="position-absolute bookmarked-icon" style="top : 0px; z-index:1000;">
-                            <i class="fa far fa-bookmark "></i>
-                        </div>
+
+                        <a href="./controller/bookmark.php?action=bookmark&tutoId=<?= $data['id']?>&userId=<?= $_SESSION['userId']?>">
+                            <div class="position-absolute bookmarked-icon" style="top : 0px; z-index:1000;">
+                                <?php if(isset($data['bookmark'])){
+                                    echo '<i class="fa fal fa-bookmark"></i>';
+                                }
+                                else {
+                                    echo '<i class="fa far fa-bookmark"></i>';
+                                }
+                                ?>
+                            </div>
+                        </a>
                     </div>
                     <a href="index.php?action=tuto&id=<?= $data['id']?>">
                         <div class="card-block">
