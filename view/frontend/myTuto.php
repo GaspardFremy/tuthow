@@ -11,31 +11,56 @@
         <h4 class="category-title">My tutos</h4>
 
         <div class="row">
+            <!-- Button trigger modal -->
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="deletModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+
+                  </div>
+                  <div class="modal-body">
+                      Are you sure you want to delet this tuto?
+                  </div>
+                  <div class="modal-footer">
+                      <button class="btn btn-default"data-dismiss="modal" aria-hidden="true">Cancel</button>
+                      <a href="#" class="btn btn-danger"  id="modalDelete" >Delete</a>
+                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a href="./index.php?action=myTutos&id=<?= $data['id']?>" <button type="button" class="btn btn-primary">Save changes</button> </a> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <?php if(isset($_SESSION['userId']) && $_SESSION['userId'] > 1){
 
                 while ($data = $myTutos->fetch())
 
                 //TODO : Folowing condition is suppose to work.. Tried rowCount() alrd
                 if (empty($myTutos)) {
-                    echo '<h5>You don\'t have any bookmar tuto yet</h5>';
+                    echo '<h5>You don\'t have any bookmarked tuto yet</h5>';
                 }
 
                 else {
                     ?>
+
                     <div class="col-md-3 pt-2">
+
                         <!-- Card -->
                         <article class="card animated">
                             <div class="img-container">
                                 <img class="card-img-top card-img-rounded img-fluid" src="./public/img/tutos-header-img/<?php if(!empty($data['headerImg'])){echo htmlspecialchars($data['headerImg']);} else {echo "default.jpg";} ?>"/>
-                                <a <?php if (!isset($_SESSION['userId'])){echo 'data-toggle="modal" data-target="#exampleModal"';}?> href="./controller/bookmark.php?action=bookmark&tutoId=<?= $data['id']?>&userId=<?= $_SESSION['userId']?>">
-                                    <div class="position-absolute bookmarked-icon" style="top : 0px; z-index:1000;">
-                                        <?php if(isset($data['bookmark'])){
-                                            echo '<i class="fa fal fa-bookmark"></i>';
-                                        }
-                                        else {
-                                            echo '<i class="fa far fa-bookmark"></i>';
-                                        }
-                                        ?>
+                                <a href="#">
+                                    <div class="card-icon" style="top :0px; right: 8px;  z-index:1000;">
+                                        <i class="far fa-edit"></i>
+                                    </div>
+                                </a>
+
+                                <a href="#">
+                                    <div class="card-icon trash" data-id="<?= $data['id']?>" data-toggle="modal" data-target="#deletModal" style="top : 0px; left: 8px;z-index:1000;">
+                                        <i class="far fa-trash-alt"></i>
                                     </div>
                                 </a>
                             </div>
@@ -52,6 +77,7 @@
                                     </div>
                                 </div>
                             </a>
+
                         </article>
                     </div>
                     <?php
@@ -64,6 +90,9 @@
         </div>
     </div>
 </div>
+
+
+
 
 
 

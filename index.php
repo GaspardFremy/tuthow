@@ -94,6 +94,12 @@ try {
             }
         }
 
+        elseif ($_GET['action'] == 'deletTutos'){
+            if (isset($_GET['id']) && $_GET['id'] > 0){
+                deletTuto($_GET['id'], $_SESSION['pseudo']);
+            }
+        }
+
     }
     else {
         error404();

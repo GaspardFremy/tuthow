@@ -26,3 +26,14 @@ $('.body-container').click(function() {
       $('.menu-nav').css('width','70px');
          },50);
   });
+
+
+
+  $('.trash').click(function(){
+      console.log("yo");
+      var id=$(this).data('id');
+      $('#modalDelete').attr('href','delete-cover.php?id='+id);
+  })
+
+
+  

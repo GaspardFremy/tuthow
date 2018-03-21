@@ -17,22 +17,28 @@
             <form action="./controller/addTuto.php?action=addTuto" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Title</label>
-                    <input name="tutoTitle" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Votre titre" value="<?php if (isset($_GET['tutoTitle']) AND !empty($_GET['tutoTitle'])){echo $_GET['tutoTitle'];}?>">
+                    <input name="tutoTitle" type="text" class="form-control blue-border" aria-describedby="emailHelp" placeholder="Votre titre" value="<?php if (isset($_GET['tutoTitle']) AND !empty($_GET['tutoTitle'])){echo $_GET['tutoTitle'];}?>">
                 </div>
 
                 <div class="form-group">
                     <label for="exampleTextarea">Description</label>
-                    <textarea name="description" class="form-control" rows="3"><?php if(isset($_GET['description'])){echo $_GET['description'];} ?></textarea>
+                    <textarea name="description" class="form-control blue-border" rows="3"><?php if(isset($_GET['description'])){echo $_GET['description'];} ?></textarea>
                 </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="exampleInputFile">Header img</label>
                     <input type="file" name="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-                </div>
+                </div> -->
+
+                <label for="file" class="input_label">
+            		<i class="fa fa-upload" aria-hidden="true"></i>
+            		<span id="label_span">Header image</span>
+            	</label>
+            	<input id="file" type="file" name="file" aria-describedby="fileHelp">
 
                 <div class="form-group">
                     <label for="exampleTextarea">Your tuto</label>
-                    <textarea name="content" class="form-control" rows="3"><?php if(isset($_GET['content'])){echo $_GET['content'];} ?></textarea>
+                    <textarea name="content" class="form-control blue-border" rows="3"><?php if(isset($_GET['content'])){echo $_GET['content'];} ?></textarea>
                 </div>
 
                 <div class="form-group">
@@ -61,7 +67,7 @@
 
                 <div class="form-group">
                     <label for="exampleSelect1">Level</label>
-                    <select name="level" class="form-control">
+                    <select name="level" class="form-control blue-border">
                     <option value="1">Easy</option>
                     <option value="2">Medium</option>
                     <option value="3">Advance</option>
@@ -71,8 +77,8 @@
                 </div>
 
                 <div class="form-inline">
-                    <input name="duration" class="form-control" type="number" value="42" id="example-number-input">
-                    <select name="durationType" class="form-control">
+                    <input name="duration" class="form-control blue-border" type="number" value="42" id="example-number-input">
+                    <select name="durationType" class="form-control blue-border ml-2">
                         <option value="1">mn</option>
                         <option value="2">h</option>
                         <option value="3">week</option>

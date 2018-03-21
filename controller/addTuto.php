@@ -53,7 +53,7 @@ if (isset($_GET['action']) AND $_GET['action'] == "addTuto")
                     $fileActualExt = strtolower(end($fileExt));
 
                     $allowed = array('jpg', 'jpeg', 'png', 'pdf');
-                    
+
                     if (in_array($fileActualExt, $allowed))
                     {
                         if($fileError === 0)
@@ -92,8 +92,8 @@ if (isset($_GET['action']) AND $_GET['action'] == "addTuto")
 
                 else
                 {
-                    header('location: ../index.php?action=myTutos');
-                    die();
+                    // header('location: ../index.php?action=myTutos');
+                    // die();
                 }
 
             }

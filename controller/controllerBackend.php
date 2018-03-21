@@ -23,17 +23,16 @@ function addTuto()
         }
 }
 
-// function addComment($tutoId, $pseudo, $comment)
-// {
-//     $affectedLines = postComment($tutoId, $pseudo, $comment);
-//
-//     if ($affectedLines === false) {
-//         throw new Exception('Impossible d\'ajouter le commentaire !');
-//     }
-//     else {
-//         header('Location: index.php?action=tuto&id=' . $tutoId);
-//     }
-// }
+function deletTuto($tutoId){
+    $affectedLines = delTuto($tutoId);
+
+    if ($affectedLines === false) {
+        throw new Exception('Impossible de supprimer le tuto');
+    }
+    else {
+        header('Location: index.php?action=myTutos&deleted=true');
+    }
+}
 
 function editProfile()
 {

@@ -11,7 +11,7 @@
     </div>
     <div class="col-md-11 col-sm-12 body-container text-center">
 
-        <div class="header-img-container" style="background-image: url('./public/img/tutos-header-img/<?php if(!empty($data['headerImg'])){echo htmlspecialchars($data['headerImg']);} else {echo "default.jpg";} ?>">
+        <div class="header-img-container" style="background-image: url('./public/img/tutos-header-img/<?php if(!empty($tuto['headerImg'])){echo htmlspecialchars($tuto['headerImg']);} else {echo "default.jpg";} ?>">
 
 
         </div>
