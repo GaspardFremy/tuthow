@@ -26,7 +26,7 @@
                         <!-- Card -->
                         <article class="card animated">
                             <div class="img-container">
-                                <img class="card-img-top card-img-rounded img-fluid" src="./public/img/tutos-header-img/<?= htmlspecialchars($data['id'])?>.jpg"/>
+                                <img class="card-img-top card-img-rounded img-fluid" src="./public/img/tutos-header-img/<?php if(!empty($data['headerImg'])){echo htmlspecialchars($data['headerImg']);} else {echo "default.jpg";} ?>"/>
                                 <a href="./controller/bookmark.php?action=bookmark&tutoId=<?= $data['id']?>&userId=<?= $_SESSION['userId']?>">
                                     <div class="position-absolute bookmarked-icon" style="top : 0px; z-index:1000;">
                                         <i class="fa fal fa-bookmark "></i>

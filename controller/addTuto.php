@@ -14,6 +14,8 @@ if (isset($_GET['action']) AND $_GET['action'] == "addTuto")
 
 
 
+
+
     if (!empty($_POST['tutoTitle']))
     {
         if (!empty($_POST['description']))
@@ -34,8 +36,66 @@ if (isset($_GET['action']) AND $_GET['action'] == "addTuto")
                     'userId' => $userId
                 ));
 
-                header('location: ../index.php?action=myTutos');
-                die();
+
+
+                if (!empty($file))
+                {
+                    $lastId = $db->lastInsertId();
+                    $file = $_FILES['file'];
+
+                    $fileName = $file['name'];
+                    $fileTmpName = $file['tmp_name'];
+                    $fileSize = $file['size'];
+                    $fileError = $file['error'];
+                    $fileType = $file['type'];
+
+                    $fileExt = explode('.', $fileName);
+                    $fileActualExt = strtolower(end($fileExt));
+
+                    $allowed = array('jpg', 'jpeg', 'png', 'pdf');
+                    
+                    if (in_array($fileActualExt, $allowed))
+                    {
+                        if($fileError === 0)
+                        {
+                            if($fileSize < 10000000)
+                            {
+                                $fileNameNew = $lastId. "." .$fileActualExt;
+                                $fileDestination = '../public/img/tutos-header-img/' .$fileNameNew;
+                                echo $fileTmpName;
+                                $resultat = move_uploaded_file($fileTmpName, $fileDestination);
+
+                                if($resultat)
+                                {
+                                    $updateHeader = $db->prepare('UPDATE tutos SET headerImg = :headerImg WHERE id = :id');
+                                    $updateHeader->execute(array(
+                                        'headerImg' => $fileNameNew,
+                                        'id' => $lastId
+                                    ));
+                                }
+
+
+                                header('location: ../index.php?action=myTutos');
+                                die();
+                            }
+                            else
+                            {
+                                $error = "Your file is to big";
+                            }
+                        }
+                        else
+                        {
+                            $error = "there was an error uploading your file";
+                        }
+                    }
+                }
+
+                else
+                {
+                    header('location: ../index.php?action=myTutos');
+                    die();
+                }
+
             }
             else
             {

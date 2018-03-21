@@ -11,7 +11,8 @@
     </div>
     <div class="col-md-11 col-sm-12 body-container text-center">
 
-        <div class="header-img-container" style="background-image: url('./public/img/tutos-header-img/<?= $tuto['id']?>.jpg');">
+        <div class="header-img-container" style="background-image: url('./public/img/tutos-header-img/<?php if(!empty($data['headerImg'])){echo htmlspecialchars($data['headerImg']);} else {echo "default.jpg";} ?>">
+
 
         </div>
 
@@ -22,7 +23,7 @@
         <h6>Was this tuto usefull?</h6>
 
 
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center space">
             <a href="./controller/likeDislike.php?action=like&tutoId=<?= $tuto['id']?>&userId=<?= $_SESSION['userId']?>">
                 <div class="thumbs-up-icon mx-2">
                     <i class=" <?php if(isset($_GET['state']) && $_GET['state'] == 'liked')

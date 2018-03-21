@@ -14,7 +14,7 @@
 
 
         <div style='width: 40%;' class="mx-auto">
-            <form action="./controller/addTuto.php?action=addTuto" method="post">
+            <form action="./controller/addTuto.php?action=addTuto" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Title</label>
                     <input name="tutoTitle" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Votre titre" value="<?php if (isset($_GET['tutoTitle']) AND !empty($_GET['tutoTitle'])){echo $_GET['tutoTitle'];}?>">
@@ -27,7 +27,7 @@
 
                 <div class="form-group">
                     <label for="exampleInputFile">Header img</label>
-                    <input type="file" name="header-file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                    <input type="file" name="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
                 </div>
 
                 <div class="form-group">

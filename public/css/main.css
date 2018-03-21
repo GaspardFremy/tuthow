@@ -14,8 +14,6 @@ a, a:hover {
     text-decoration: none;
 }
 
-
-
 .col-1 {
     max-width: 6.333333%;
 }
@@ -54,7 +52,11 @@ a, a:hover {
 }
 
 .main-nav ul li {
-    margin-top: 3rem;
+    margin-top: 5rem;
+}
+
+.main-nav ul:first-child {
+    margin-top: 1rem;
 }
 
 .icon-menu:hover {
@@ -73,13 +75,11 @@ a, a:hover {
     opacity: 0;
     display: none;
     transition: visibility 1s, opacity 1s linear;
-
 }
 
 /* HOVER MENU EFFECT */
 
 .menu-nav .menu-title {
-
     opacity: 1;
 }
 

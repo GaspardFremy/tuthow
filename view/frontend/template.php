@@ -24,12 +24,11 @@
 
     <nav class="main-nav navbar sticky-top menu-nav align-items-center">
         <a href="./index.php?action=home"><img src="./public/img/logowhite.png" class="logo" alt=""></a>
-        <ul class="d-flex flex-column align-items-space mb-auto">
-            <li class="d-flex align-items-center"><a href="./index.php?action=advanceSearch"><img src="./public/img/icon/iconSearch.png" class="icon-menu hvr-bounce-in"alt=""> <span class="ml-2 menu-title"> Recherche </span></li></a>
+        <ul class="d-flex flex-column align-items-center my-auto">
+            <li class="d-flex align-items-center" style="margin-top: 0rem;"><a href="./index.php?action=advanceSearch"><img src="./public/img/icon/iconSearch.png" class="icon-menu hvr-bounce-in"alt=""> <span class="ml-2 menu-title"> Recherche </span></li></a>
             <li class="d-flex align-items-center"><a href="./index.php?action=home"><img src="./public/img/icon/iconHome.png" class="icon-menu hvr-bounce-in"alt=""> <span class="ml-2 menu-title">Accueil </span></li></a>
             <li class="d-flex align-items-center"><a href="./index.php?action=category"><img src="./public/img/icon/iconTag.png" class="icon-menu hvr-bounce-in"alt=""> <span class="ml-2 menu-title">Catégories </span></li></a>
-        <!-- </ul>
-        <ul class="d-flex flex-column align-items-bottom mb-auto"> -->
+
             <li class="d-flex align-items-center"><a href="./index.php?action=createTuto"><img src="./public/img/icon/iconPencil.png" class="icon-menu hvr-bounce-in"alt=""></a> <span class="ml-2 menu-title"> Écrire un tuto </span></li>
             <li class="d-flex align-items-center"><a href="./index.php?action=bookmarked"><img src="./public/img/icon/iconFav.png" class="icon-menu hvr-bounce-in"alt=""></a> <span class="ml-2 menu-title"> Favoris </span></li>
             <li class="d-flex align-items-center"><a href="./index.php?action=profile"><img src="./public/img/icon/iconProfil.png" class="icon-menu hvr-bounce-in"alt=""></a> <span class="ml-2 menu-title"> <?php if(isset($_SESSION['pseudo'])){echo $_SESSION['pseudo'];}else{ echo 'Profil';} ?>  </span></li>
