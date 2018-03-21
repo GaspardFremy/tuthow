@@ -29,8 +29,13 @@ try {
 
         }
 
-        elseif ($_GET['action'] == 'myTuto'){
-            myTuto();
+        elseif ($_GET['action'] == 'myTutos'){
+            if(!empty($_SESSION['userId'])){
+                myTutos($_SESSION['userId']);
+            }
+            else {
+                echo 'You\'re not connected';
+            }
         }
 
         elseif ($_GET['action'] == 'category') {
@@ -71,8 +76,8 @@ try {
             advanceSearch();
         }
 
-        elseif ($_GET['action'] == 'addTuto'){
-            addTuto();
+        elseif ($_GET['action'] == 'createTuto'){
+            createTuto();
         }
 
         elseif ($_GET['action'] == 'addComment') {

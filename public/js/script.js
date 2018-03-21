@@ -26,7 +26,3 @@ $('.body-container').click(function() {
       $('.menu-nav').css('width','70px');
          },50);
   });
-
-
-
-console.log('test');

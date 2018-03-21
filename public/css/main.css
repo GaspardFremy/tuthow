@@ -231,6 +231,7 @@ a, a:hover {
 }
 
 
+
 /* SWIPER */
 .swiper-container {
     height: 100%;
@@ -253,4 +254,24 @@ a, a:hover {
 
 .swiper-wrapper {
     height: 90%;
+}
+
+
+
+
+
+/* CREATE TUTO */
+
+.dynamic-form button, .dynamic-form button:focus {
+    background-color: transparent;
+    border: none;
+    outline: 0;
+}
+
+.add-form{
+    width: 30px;
+}
+
+.rmv-form {
+    width: 15px;
 }

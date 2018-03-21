@@ -1,0 +1,87 @@
+body {
+  background-color: #FFFFFF;
+}
+
+.shdw {
+     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+#tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    background-color: transparent;
+    border-color: transparent transparent #f3f3f3;
+    border: 0px solid transparent;
+    border-bottom: 3px solid #67CDC7 !important;
+}
+#tabs .nav-tabs .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+
+.nav-link:hover {
+    border: none;
+}
+
+.nav-tabs {
+    border-bottom: 0px solid #ddd;
+}
+
+.nav-link {
+    display: block;
+    padding: .5em 2.5em;
+}
+
+.login-box {
+  width: 50%;
+  padding: 30px
+}
+
+.container {
+  background: #fff;
+}
+
+.login-sec {
+  padding: 50px;
+  position: relative;
+}
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+.btn-login {
+  background-image: linear-gradient(-180deg, #66D5AA 0%, #2EBCB2 100%, #2BBBB2 100%);
+  color: #fff;
+  margin-top: 6px;
+  border:none;
+  padding-bottom: 10px;
+  border-radius: 2px;
+}
+
+.logo-img img {
+
+  height:50px;
+  margin-bottom: 45px;
+  margin-top: 5px;
+
+
+}
+
+.form-control {
+
+  border-radius: 2px;
+}
+
+.btn-secondary {
+  font-size: 10px;
+  margin-top: 15px;
+
+}
+
+.btn-secondary img {
+
+}

@@ -13,7 +13,12 @@
 
     <h2>Bienvenu sur votre profil, <?php echo $_SESSION['pseudo']; ?>  </h2>
 
+    <a href="./index.php?action=myTutos"><button type="button" class="btn btn-outline-success">Mes tutos</button></a>
+
+    <hr>
+
     <a href="./controller/logout.php"><button type="button" class="btn btn-outline-danger">se déconnecter</button></a>
+
 
     </div>
 </div>

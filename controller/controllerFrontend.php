@@ -39,8 +39,9 @@ function addComment($tutoId, $pseudo, $comment)
     }
 }
 
-function myTuto()
+function myTutos($userId)
 {
+    $myTutos = getMyTutos($userId);
     require('view/frontend/myTuto.php');
 }
 

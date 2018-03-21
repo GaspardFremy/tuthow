@@ -15,68 +15,89 @@
     <link rel="stylesheet" href="./public/css/swiper.css">
     <link rel="stylesheet" href="./public/css/main.css">
     <link rel="stylesheet" href="./public/css/tuto.css">
+    <link rel="stylesheet" href="./public/css/signin.css">
+
 
 </head>
 
 <body>
 
-    <div class="row">
-        <div class="col-1 no-gutter">
+        <section class="login-box centered">
+		<div class="container card shdw">
+			<div class="row justify-content-center">
+				<div class="col-md-8 login-sec">
+					<div class="logo-img text-center">
+						<a href="./index.php?action=home"><img class="wobble" src="./public/img/logo.png"></a>
+					</div>
+					<ul id="tabsJustified" class="nav nav-tabs">
+						<li class="nav-item"><a href="" data-target="#signin" data-toggle="tab" class="nav-link active">Connexion</a></li>
+						<li class="nav-item"><a href="" data-target="#signup" data-toggle="tab" class="nav-link">S'enregistrer</a></li>
+					</ul>
+					<br>
+					<div id="tabsJustifiedContent" class="tab-content">
+						<div id="signin" class="tab-pane fade active show">
+							<form class="form-signin" method="post" action='./controller/login.php'>
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Identifiant" name="login_email" value="<?php if(isset($_GET['login_email'])){echo $_GET['login_email'];}?>">
+								</div>
+								<div class="form-group">
+									<input type="password" class="form-control" placeholder="Mot de passe" name="login_password">
+								</div>
 
-        </div>
-        <div class="col-md-11 col-sm-12 body-container">
+								<div class="form-check">
+									<label class="form-check-label">
+										<input type="checkbox" class="form-check-input">
+										<small>Se souvenir de moi</small>
+									</label>
+								</div>
 
-        <h1>Connexion/Inscription</h1>
+                                <?php if(isset($_GET['error']) AND !empty($_GET['error']))
+                                        {?>
+                                          <div class="alert alert-danger" role="alert"><?php
+                                              echo $_GET['error'];?>
+                                          </div><?php
+                                        }?>
 
-        <form class="form-signin my-5" action="./controller/signin.php" method="post" >
+								<button type="submit" class="btn btn-login col-lg-12" name="form-login">Login</button>
+								<button type="button" class="btn btn-secondary">Connexion avec Facebook<img style="height: 15px; margin-left: 9px;" src="./public/img/facebook.png"></button>
 
-        <h2 class="form-signin-heading">Créer un compte</h2>
+								<button type="button" class="btn btn-secondary">Connexion avec Google<img style="height: 15px; margin-left: 9px;" src="./public/img/google.png"></button>
+							</form>
+						</div>
+						<div id="signup" class="tab-pane fade">
+							<form class="form-signin" method="post" action='./controller/signin.php'>
+                                <div class="form-group">
+									<input type="email" required class="form-control" placeholder="email" name="email" required value="<?php if(isset($_GET['email'])){echo $_GET['email'];}?>">
+								</div>
 
-        <label for="inputEmail" class="sr-only">Addresse mail</label>
-        <input type="text" class="form-control" name="email" placeholder="Email address" required value="<?php if(isset($_GET['email'])){echo $_GET['email'];}?>">
+								<div class="form-group">
+									<input type="text" required class="form-control" placeholder="Votre nom (ou pseudo)" name="pseudo" value="<?php if(isset($_GET['pseudo'])){echo $_GET['pseudo'];}?>">
+								</div>
+								<div class="form-group">
+									<input type="password" required class="form-control" placeholder="Mot de passe" name="password" value="<?php if(isset($password)){echo $_POST['password'];}?>">
+								</div>
+								<div class="form-group">
+									<input type="password" required class="form-control" placeholder="Confirmer le mot de passe" name="confirm_password" value="<?php if(isset($confirm_password)){echo $_POST['confirm_password'];}?>">
+								</div>
 
-        <label for="inputPseudo" class="sr-only">Pseudo</label>
-        <input type="text" class="form-control" name="pseudo" placeholder="Pseudo" required value="<?php if(isset($_GET['pseudo'])){echo $_GET['pseudo'];}?>">
+                                <?php if(isset($_GET['error']) AND !empty($_GET['error']))
+                                        {?>
+                                          <div class="alert alert-danger" role="alert"><?php
+                                              echo $_GET['error'];?>
+                                          </div><?php
+                                        }?> 
 
-        <label for="inputPassword" class="sr-only">Mot de passe</label>
-        <input type="password" class="form-control" name="password" placeholder="Mot de passe" required value="<?php if(isset($password)){echo $_POST['password'];}?>">
+								<button type="submit" class="btn btn-login col-lg-12" name="form_signin">Sigin</button>
 
-        <label for="inputPassword" class="sr-only">Confirmation mot de passe</label>
-        <input type="password" class="form-control" name="confirm_password" placeholder="Confirmer le mot de passe" required value="<?php if(isset($confirm_password)){echo $_POST['confirm_password'];}?>">
+								<button type="button" class="btn btn-secondary">Connexion avec Facebook<img style="height: 15px; margin-left: 9px;" src="./public/img/facebook.png"></button>
 
-        <br>
-        <button class="btn btn-lg btn-primary btn-block" name="form_signin" type="submit">S'inscrire</button>
-    </form>
-
-
-
-      <?php if(isset($_GET['error']) AND !empty($_GET['error'])){?>
-        <div class="alert alert-danger" role="alert"><?php
-            echo $_GET['error'];?>
-        </div><?php
-        }?>
-
-
-
-
-    <form class="form-signin my-5" method="post" action='./controller/login.php'>
-        <h2 class="form-signin-heading">Connectez vous</h2>
-        <label for="inputEmail" class="sr-only">addresse mail</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="login_email" value="<?php if(isset($_GET['login_email'])){echo $_GET['login_email'];}?>" required autofocus>
-        <label for="inputPassword" class="sr-only">mot de passe</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="login_password" required>
-        <div class="checkbox">
-        <label>
-        <input type="checkbox" value="remember-me"> Remember me
-        </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" name="form-login" type="submit">Sign in</button>
-    </form>
-
-        <a href="./index.php?action=home">retour à l'accueil</a>
-
-        </div>
-    </div>
+								<button type="button" class="btn btn-secondary">Connexion avec Google<img style="height: 15px; margin-left: 10px;" src="./public/img/google.png"></button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
@@ -86,49 +107,6 @@
    <script src="./public/js/fontawesome-all.js"></script>
    <script src="./public/js/swiper.min.js"></script>
    <script src="./public/js/script.js"></script>
-
-
-   <!-- Initialize Swiper -->
- <script>
-   var swiper = new Swiper('.swiper-container', {
-     slidesPerView: 4,
-     spaceBetween: 20,
-
-     autoplay: {
-        delay: 5500,
-        disableOnInteraction: true,
-      },
-
-      loop: true,
-
-      keyboard: {
-        enabled: true,
-      },
-
-     navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-     breakpoints: {
-       1024: {
-         slidesPerView: 4,
-         spaceBetween: 40,
-       },
-       768: {
-         slidesPerView: 3,
-         spaceBetween: 30,
-       },
-       640: {
-         slidesPerView: 2,
-         spaceBetween: 20,
-       },
-       320: {
-         slidesPerView: 1,
-         spaceBetween: 10,
-       }
-     }
-   });
- </script>
 
 </body>
 </html>

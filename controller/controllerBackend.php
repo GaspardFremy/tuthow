@@ -6,10 +6,34 @@ function advanceSearch()
     require('view/backend/advanceSearch.php');
 }
 
+function createTuto()
+{
+    require('view/backend/createTuto.php');
+}
+
 function addTuto()
 {
-    require('view/backend/addTuto.php');
+    $affectedLines = postComment($tutoId, $pseudo, $comment);
+
+        if ($affectedLines === false) {
+            throw new Exception('Impossible d\'ajouter le commentaire !');
+        }
+        else {
+            header('Location: index.php?action=tuto&id=' . $tutoId);
+        }
 }
+
+// function addComment($tutoId, $pseudo, $comment)
+// {
+//     $affectedLines = postComment($tutoId, $pseudo, $comment);
+//
+//     if ($affectedLines === false) {
+//         throw new Exception('Impossible d\'ajouter le commentaire !');
+//     }
+//     else {
+//         header('Location: index.php?action=tuto&id=' . $tutoId);
+//     }
+// }
 
 function editProfile()
 {

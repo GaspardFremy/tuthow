@@ -151,7 +151,7 @@ function isBookmarked($tutoId, $userId)
 function getComments($tutoId)
 {
     $db = dbConnect();
-    $comments = $db->prepare('SELECT id, pseudo, comment, DATE_FORMAT(commentDate, \'%d/%m/%Y à %Hh%imin%ss\') AS commentDateFr FROM comments WHERE tutoId = ? ORDER BY commentDate DESC');
+    $comments = $db->prepare('SELECT id, pseudo, comment, DATE_FORMAT(commentDate, "%d\%m\%Y %Hh%imin%ss") AS commentDateFr FROM comments WHERE tutoId = ? ORDER BY commentDate DESC');
     $comments->execute(array($tutoId));
 
     return $comments;
@@ -185,6 +185,25 @@ function getBookmarkedTutos($userId)
 }
 
 
+// MY TUTOS
+
+function getMyTutos($userId)
+{
+    $db = dbConnect();
+
+    $myTutos = $db->prepare('SELECT tutos.*, tutosLevels.tutoLevel, tutosLevels.color, durationTypes.durationType, bookmarks.id AS bookmark
+    FROM tutos
+    INNER JOIN tutosLevels ON tutos.levelId = tutosLevels.id
+    INNER JOIN tutosLayouts ON tutosLayouts.id = tutos.layoutId
+    INNER JOIN durationTypes ON durationTypes.id = tutos.durationTypeId
+    LEFT OUTER JOIN bookmarks ON bookmarks.tutoId = tutos.id
+
+    WHERE tutos.userId = ?');
+
+    $myTutos->execute(array($userId));
+
+    return $myTutos;
+}
 
 
 

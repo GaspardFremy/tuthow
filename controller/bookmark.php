@@ -28,6 +28,7 @@ if (isset($_GET['action'], $_GET['tutoId'], $_GET['userId']) AND !empty($_GET['a
 
         }
 
-        header('location: ../index.php?action=home');
+        // header('location: ../index.php?action=home');
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 }
