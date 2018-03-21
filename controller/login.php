@@ -31,7 +31,7 @@ if (isset($_POST['form-login']))
   {
 
       session_start();
-      $_SESSION['userId'] = $resultat['id'];
+      $_SESSION['id'] = $resultat['id'];
       $_SESSION['pseudo'] = $resultat['pseudo'];
 
 
@@ -41,7 +41,7 @@ if (isset($_POST['form-login']))
       //Gros bugg avec le header location, on effectu la redirection en js.
       ?>
         <script type="text/javascript">
-        window.location.href = '../index.php?action=profile';
+        window.location.href = '../index.php?action=connected';
         </script>
       <?php
     }

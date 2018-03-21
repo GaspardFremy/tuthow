@@ -12,7 +12,6 @@ function accueil()
     $halfQuarterTutos = getHalfQuarterTutos();
     $scdHalfQuarterTutos = getScdHalfQuarterTutos();
 
-
     require('view/frontend/accueil.php');
 }
 
@@ -20,9 +19,6 @@ function tuto()
 {
     $tuto = getTuto($_GET['id']);
     $comments = getComments($_GET['id']);
-    $like = getLikes($_GET['id']);
-    $dislike = getDislikes($_GET['id']);
-
 
     require('view/frontend/tuto.php');
 }
@@ -44,9 +40,8 @@ function myTuto()
     require('view/frontend/myTuto.php');
 }
 
-function bookmarked($userId)
+function bookmarked()
 {
-    $bookmarkedTutos = getBookmarkedTutos($userId);
     require('view/frontend/bookmarked.php');
 }
 
