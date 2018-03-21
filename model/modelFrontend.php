@@ -6,12 +6,11 @@ function getSliderTutos()
 {
     $db = dbConnect();
 
-    $sliderTutos = $db->query('SELECT tutos.*, tutosLevels.tutoLevel, tutosLevels.color, durationTypes.durationType, bookmarks.id AS bookmark
+    $sliderTutos = $db->query('SELECT tutos.*, tutosLevels.tutoLevel, tutosLevels.color, durationTypes.durationType
     FROM tutos
     INNER JOIN tutosLevels ON tutos.levelId = tutosLevels.id
     INNER JOIN tutosLayouts ON tutosLayouts.id = tutos.layoutId
     INNER JOIN durationTypes ON durationTypes.id = tutos.durationTypeId
-    LEFT OUTER JOIN bookmarks ON bookmarks.tutoId = tutos.id
 
     WHERE tutosLayouts.id = 1
 
@@ -24,12 +23,11 @@ function getLargeTuto()
 {
     $db = dbConnect();
 
-    $largeTuto = $db->query('SELECT tutos.*, tutosLevels.tutoLevel, tutosLevels.color, durationTypes.durationType, bookmarks.id AS bookmark
+    $largeTuto = $db->query('SELECT tutos.*, tutosLevels.tutoLevel, tutosLevels.color, durationTypes.durationType
     FROM tutos
     INNER JOIN tutosLevels ON tutosLevels.id = tutos.levelId
     INNER JOIN tutosLayouts ON tutosLayouts.id = tutos.layoutId
     INNER JOIN durationTypes ON durationTypes.id = tutos.durationTypeId
-    LEFT OUTER JOIN bookmarks ON bookmarks.tutoId = tutos.id
 
     WHERE tutosLayouts.id = 2');
 
@@ -115,39 +113,6 @@ function getTuto($tutoId)
     return $tuto;
 }
 
-function getLikes($tutoId)
-{
-    $db = dbConnect();
-    $likes= $db->prepare('SELECT id
-    FROM likes WHERE tutoId = ?');
-    $likes->execute(array($tutoId));
-    $like = $likes->rowCount();
-
-    return $like;
-}
-
-function getDislikes($tutoId)
-{
-    $db = dbConnect();
-    $dislikes= $db->prepare('SELECT id FROM dislikes WHERE tutoId = ?');
-    $dislikes->execute(array($tutoId));
-    $dislike = $dislikes->rowCount();
-
-    return $dislike;
-}
-
-function isBookmarked($tutoId, $userId)
-{
-    $db = dbConnect();
-    $check_bookmark = $db->prepare('SELECT id FROM bookmarks WHERE tutoId = ? AND userId = ?');
-    $check_bookmark->execute(array($tutoId, $userId));
-
-    $check_bookmark->rowCount();
-
-    return $check_bookmark;
-
-}
-
 function getComments($tutoId)
 {
     $db = dbConnect();
@@ -165,25 +130,6 @@ function postComment($tutoId, $pseudo, $comment)
 
     return $affectedLines;
 }
-
-// BOOKMARKED
-
-function getBookmarkedTutos($userId)
-{
-    $db = dbConnect();
-
-    $bookmarkedTutos = $db->query('SELECT tutos.*, tutosLevels.tutoLevel, tutosLevels.color, durationTypes.durationType
-    FROM tutos
-    INNER JOIN tutosLevels ON tutosLevels.id = tutos.levelId
-    INNER JOIN tutosLayouts ON tutosLayouts.id = tutos.layoutId
-    INNER JOIN durationTypes ON durationTypes.id = tutos.durationTypeId
-    INNER JOIN bookmarks ON bookmarks.tutoId = tutos.id
-
-    ORDER by bookmarks.bookmarkedDate');
-
-    return $bookmarkedTutos;
-}
-
 
 
 

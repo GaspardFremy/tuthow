@@ -20,13 +20,7 @@ try {
         }
 
         elseif ($_GET['action'] == 'bookmarked'){
-            if(empty($_SESSION['userId'])){
-                signinForm();
-            }
-            else {
-                bookmarked($_SESSION['userId']);
-            }
-
+            bookmarked();
         }
 
         elseif ($_GET['action'] == 'myTuto'){
@@ -38,12 +32,16 @@ try {
         }
 
         elseif ($_GET['action'] == 'profile'){
-            if(empty($_SESSION['userId'])){
+            if(empty($_SESSION['id'])){
                 signinForm();
             }
             else {
                 profile();
             }
+        }
+
+        elseif ($_GET['action'] == 'connexion'){
+            connexion();
         }
 
         elseif ($_GET['action'] == 'signinForm'){
@@ -88,7 +86,6 @@ try {
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         }
-
     }
     else {
         error404();
