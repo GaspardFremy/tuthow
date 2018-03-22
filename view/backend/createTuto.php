@@ -25,16 +25,16 @@
                     <textarea name="description" class="form-control blue-border" rows="3"><?php if(isset($_GET['description'])){echo $_GET['description'];} ?></textarea>
                 </div>
 
-                <!-- <div class="form-group">
+                <div class="form-group">
                     <label for="exampleInputFile">Header img</label>
                     <input type="file" name="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-                </div> -->
+                </div>
 
-                <label for="file" class="input_label">
+                <!-- <label for="file" class="input_label">
             		<i class="fa fa-upload" aria-hidden="true"></i>
             		<span id="label_span">Header image</span>
             	</label>
-            	<input id="file" type="file" name="file" aria-describedby="fileHelp">
+            	<input id="file" type="file" name="file" aria-describedby="fileHelp"> -->
 
                 <div class="form-group">
                     <label for="exampleTextarea">Your tuto</label>

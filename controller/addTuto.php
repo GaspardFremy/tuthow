@@ -38,8 +38,9 @@ if (isset($_GET['action']) AND $_GET['action'] == "addTuto")
 
 
 
-                if (!empty($file))
+                if (!empty($_FILES['file']))
                 {
+                    $error = "okkkk";
                     $lastId = $db->lastInsertId();
                     $file = $_FILES['file'];
 
@@ -62,7 +63,6 @@ if (isset($_GET['action']) AND $_GET['action'] == "addTuto")
                             {
                                 $fileNameNew = $lastId. "." .$fileActualExt;
                                 $fileDestination = '../public/img/tutos-header-img/' .$fileNameNew;
-                                echo $fileTmpName;
                                 $resultat = move_uploaded_file($fileTmpName, $fileDestination);
 
                                 if($resultat)
@@ -92,8 +92,8 @@ if (isset($_GET['action']) AND $_GET['action'] == "addTuto")
 
                 else
                 {
-                    // header('location: ../index.php?action=myTutos');
-                    // die();
+                    header('location: ../index.php?action=myTutos');
+                    die();
                 }
 
             }
