@@ -5,7 +5,7 @@ if (isset($_GET['action']) AND $_GET['action'] == "addTuto")
 {
     $tutoTitle = htmlspecialchars($_POST['tutoTitle']);
     $description = htmlspecialchars($_POST['description']);
-    $content = htmlspecialchars($_POST['content']);
+    $content = $_POST['content'];
     $level = htmlspecialchars($_POST['level']);
     $duration = htmlspecialchars($_POST['duration']);
     $durationType = htmlspecialchars($_POST['durationType']);
@@ -111,7 +111,7 @@ if (isset($_GET['action']) AND $_GET['action'] == "addTuto")
         $error = "You must add a title";
     }
 
-    if(!$error === "")
+    if(!empty($error))
     {
         header('location: ../index.php?action=createTuto&error='. $error. '&tutoTitle=' .$tutoTitle. '&description=' .$description. '&content=' .$content);
     }

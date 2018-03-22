@@ -215,16 +215,13 @@ a, a:hover {
     height: 100%;
 }
 
-.card:focus,
-.card:hover {
-     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-
-
+.card:focus, .card:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .card-inverse .card-img-overlay {
-  background-color: rgba(51, 51, 51, 0.85);
-  border-color: rgba(51, 51, 51, 0.85);
+    background-color: rgba(51, 51, 51, 0.85);
+    border-color: rgba(51, 51, 51, 0.85);
 }
 
 .lg-card .card-img-top {
@@ -294,4 +291,12 @@ border: 1px solid #37b6ce;
 
 #file{
 	display: none;
+}
+
+.cta,.cta:hover {
+    background-color: #2EBBB2;
+    padding: 15px;
+    width: 150px;
+    border: none;
+    border-radius: 5px;
 }

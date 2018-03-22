@@ -102,10 +102,12 @@ function getScdHalfQuarterTutos()
 function getTuto($tutoId)
 {
     $db = dbConnect();
-    $req = $db->prepare('SELECT tutos.*, tutosLevels.tutoLevel, tutosLevels.color
+    $req = $db->prepare('SELECT tutos.*, tutosLevels.tutoLevel, tutosLevels.color, durationTypes.durationType, users.pseudo
     FROM tutos
     INNER JOIN tutosLevels ON tutosLevels.id = tutos.levelId
     INNER JOIN tutosLayouts ON tutosLayouts.id = tutos.layoutId
+    INNER JOIN durationTypes ON durationTypes.id = tutos.durationTypeId
+    INNER JOIN users ON users.id = tutos.userId
 
     WHERE tutos.id = ?');
 
@@ -198,7 +200,9 @@ function getMyTutos($userId)
     INNER JOIN durationTypes ON durationTypes.id = tutos.durationTypeId
     LEFT OUTER JOIN bookmarks ON bookmarks.tutoId = tutos.id
 
-    WHERE tutos.userId = ?');
+    WHERE tutos.userId = ?
+
+    ORDER BY tutos.createdDate DESC');
 
     $myTutos->execute(array($userId));
 

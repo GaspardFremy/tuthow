@@ -9,9 +9,7 @@
     </div>
     <div class="col-md-11 col-sm-12 body-container">
 
-        <h1>Ajouter un tuo</h1>
-
-
+        <h1 class="category-title" >Ajouter un tuo</h1>
 
         <div style='width: 40%;' class="mx-auto">
             <form action="./controller/addTuto.php?action=addTuto" method="post" enctype="multipart/form-data">
@@ -25,11 +23,6 @@
                     <textarea name="description" class="form-control blue-border" rows="3"><?php if(isset($_GET['description'])){echo $_GET['description'];} ?></textarea>
                 </div>
 
-                <!-- <div class="form-group">
-                    <label for="exampleInputFile">Header img</label>
-                    <input type="file" name="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-                </div> -->
-
                 <label for="file" class="input_label">
             		<i class="fa fa-upload" aria-hidden="true"></i>
             		<span id="label_span">Header image</span>
@@ -38,7 +31,7 @@
 
                 <div class="form-group">
                     <label for="exampleTextarea">Your tuto</label>
-                    <textarea name="content" class="form-control blue-border" rows="3"><?php if(isset($_GET['content'])){echo $_GET['content'];} ?></textarea>
+                    <textarea id=tutoInput name="content" class="form-control blue-border" rows="3"><?php if(isset($_GET['content'])){echo $_GET['content'];} ?></textarea>
                 </div>
 
                 <div class="form-group">
@@ -96,7 +89,7 @@
 
 
                 <div class="form-group mx-auto text-center m-5 ">
-                    <button type="submit" class="btn btn-primary">submit</button>
+                    <button type="submit" class="btn btn-primary cta">submit</button>
                 </div>
             </form>
         </div>

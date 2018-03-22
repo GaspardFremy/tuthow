@@ -46,13 +46,13 @@
                 else {
                     ?>
 
-                    <div class="col-md-3 pt-2">
+                    <div class="col-sm-6 col-md-4 col-lg-3  pt-2">
 
                         <!-- Card -->
-                        <article class="card animated">
+                        <article class="card animated mb-4">
                             <div class="img-container">
                                 <img class="card-img-top card-img-rounded img-fluid" src="./public/img/tutos-header-img/<?php if(!empty($data['headerImg'])){echo htmlspecialchars($data['headerImg']);} else {echo "default.jpg";} ?>"/>
-                                <a href="index.php?action=editTutoPage&id=<?= $data['id']?>&title=<?=$data['title']?>&description=<?=$data['description']?>&content=<?=$data['content']?>">
+                                <a href="index.php?action=editTutoPage&id=<?= $data['id']?>&title=<?=$data['title']?>&description=<?=$data['description']?>">
                                     <div class="card-icon" style="top :0px; right: 8px;  z-index:1000;">
                                         <i class="far fa-edit"></i>
                                     </div>
@@ -82,8 +82,6 @@
                     </div>
                     <?php
                 }
-
-
 
                 $myTutos->closeCursor();
             }?>
