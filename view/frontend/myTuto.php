@@ -52,7 +52,7 @@
                         <article class="card animated">
                             <div class="img-container">
                                 <img class="card-img-top card-img-rounded img-fluid" src="./public/img/tutos-header-img/<?php if(!empty($data['headerImg'])){echo htmlspecialchars($data['headerImg']);} else {echo "default.jpg";} ?>"/>
-                                <a href="#">
+                                <a href="index.php?action=editTutoPage&id=<?= $data['id']?>&title=<?=$data['title']?>&description=<?=$data['description']?>&content=<?=$data['content']?>">
                                     <div class="card-icon" style="top :0px; right: 8px;  z-index:1000;">
                                         <i class="far fa-edit"></i>
                                     </div>

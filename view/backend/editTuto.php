@@ -9,15 +9,15 @@
     </div>
     <div class="col-md-11 col-sm-12 body-container">
 
-        <h1>Ajouter un tuo</h1>
+        <h1>Edit your tuto</h1>
 
 
 
         <div style='width: 40%;' class="mx-auto">
-            <form action="./controller/addTuto.php?action=addTuto" method="post" enctype="multipart/form-data">
+            <form action="index.php?action=editTuto&id=<?=$_GET['id']?>" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Title</label>
-                    <input name="tutoTitle" type="text" class="form-control blue-border" aria-describedby="emailHelp" placeholder="Votre titre" value="<?php if (isset($_GET['tutoTitle']) AND !empty($_GET['tutoTitle'])){echo $_GET['tutoTitle'];}?>">
+                    <input name="tutoTitle" type="text" class="form-control blue-border" aria-describedby="emailHelp" placeholder="Votre titre" value="<?php if (isset($_GET['title']) AND !empty($_GET['title'])){echo $_GET['title'];}?>">
                 </div>
 
                 <div class="form-group">
@@ -25,16 +25,16 @@
                     <textarea name="description" class="form-control blue-border" rows="3"><?php if(isset($_GET['description'])){echo $_GET['description'];} ?></textarea>
                 </div>
 
-                <!-- <div class="form-group">
+                <div class="form-group">
                     <label for="exampleInputFile">Header img</label>
                     <input type="file" name="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-                </div> -->
+                </div>
 
-                <label for="file" class="input_label">
+                <!-- <label for="file" class="input_label">
             		<i class="fa fa-upload" aria-hidden="true"></i>
             		<span id="label_span">Header image</span>
             	</label>
-            	<input id="file" type="file" name="file" aria-describedby="fileHelp">
+            	<input id="file" type="file" name="file" aria-describedby="fileHelp"> -->
 
                 <div class="form-group">
                     <label for="exampleTextarea">Your tuto</label>

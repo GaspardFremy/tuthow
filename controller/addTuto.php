@@ -40,7 +40,6 @@ if (isset($_GET['action']) AND $_GET['action'] == "addTuto")
 
                 if (!empty($_FILES['file']))
                 {
-                    $error = "okkkk";
                     $lastId = $db->lastInsertId();
                     $file = $_FILES['file'];
 
@@ -112,7 +111,11 @@ if (isset($_GET['action']) AND $_GET['action'] == "addTuto")
         $error = "You must add a title";
     }
 
-    header('location: ../index.php?action=createTuto&error='. $error. '&tutoTitle=' .$tutoTitle. '&description=' .$description. '&content=' .$content);
+    if(!$error === "")
+    {
+        header('location: ../index.php?action=createTuto&error='. $error. '&tutoTitle=' .$tutoTitle. '&description=' .$description. '&content=' .$content);
+    }
+
 
 }
 
