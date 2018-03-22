@@ -76,6 +76,10 @@ try {
             advanceSearch();
         }
 
+        elseif ($_GET['action'] == 'createTuto'){
+            createTuto();
+        }
+
         elseif ($_GET['action'] == 'addComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_SESSION['pseudo']) && !empty($_POST['comment'])) {
@@ -87,20 +91,6 @@ try {
             }
             else {
                 throw new Exception('Aucun identifiant de billet envoyé');
-            }
-        }
-
-        elseif ($_GET['action'] == 'createTuto'){
-            createTuto();
-        }
-
-        elseif ($_GET['action'] == 'editTutoPage') {
-            editTutoPage();
-        }
-
-        elseif ($_GET['action'] == 'editTuto') {
-            if (isset($_GET['id']) && $_GET['id'] > 0){
-                editTuto($_GET['id'], $_POST['tutoTitle'], $_POST['description'], $_POST['content'], $_POST['level'], $_POST['duration'], $_POST['durationType']);
             }
         }
 
