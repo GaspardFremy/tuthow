@@ -211,6 +211,20 @@ a, a:hover {
     box-sizing: border-box;
 }
 
+@media (max-width: 761px) {
+
+    .body-container {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .card {
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
 .swiper-slide .card {
     height: 100%;
 }

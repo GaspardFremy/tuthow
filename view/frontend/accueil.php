@@ -4,7 +4,7 @@
 
 
 <div class="row">
-    <div class="col-1 no-gutter">
+    <div class="col-md-1 col-s-0 no-gutter">
 
     </div>
     <div class="col-md-11 col-sm-12 body-container">
@@ -59,7 +59,7 @@
         <h4 class="category-title2">À la une</h4>
 
         <div class="row">
-            <div class="col-6 pdg-10">
+            <div class="col-md-6 col-sm-12 pdg-10">
 
                 <?php while ($data = $largeTuto->fetch())
 
@@ -98,13 +98,13 @@
                 $largeTuto->closeCursor();?>
             </div>
 
-            <div class="col-6 pdg-10">
+            <div class="col-md-6 col-sm-12 pdg-10">
                 <?php while ($data = $halfLargeTuto->fetch())
 
                 {?>
                     <article class="card animated">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-md-6">
                                 <a href="index.php?action=tuto&id=<?= $data['id']?>">
                                     <div class="card-block">
                                         <h6 class="card-title"><?php echo htmlspecialchars(substr($data['title'],0,80));?></h6>
@@ -117,8 +117,8 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-6 pdg-0">
-                                <div class="img-bg" style="height: 100%; background-image: url(./public/img/tutos-header-img/<?= htmlspecialchars($data['id'])?>.jpg); background-size: cover;"></div>
+                            <div class="col-md-6 pdg-0">
+                                <div class="img-bg" style="height: 100%; background-image: url(./public/img/tutos-header-img/<?= htmlspecialchars($data['headerImg'])?>); background-size: cover;"></div>
                             </div>
                         </div>
                     </article><?php
@@ -126,7 +126,7 @@
                 $halfLargeTuto->closeCursor();?>
 
                 <div class="row" style="padding-top: 17px;">
-                    <div class="col-6 pdg-10">
+                    <div class="col-md-6 col-sm-6 pdg-10">
                         <?php while ($data = $quarterTuto->fetch())
 
                         {?>
@@ -148,7 +148,7 @@
 
 
                     </div>
-                    <div class="col-6 pdg-10">
+                    <div class="col-md-6 col-sm-6 pdg-10">
                         <?php while ($data = $halfQuarterTutos->fetch())
 
                         {?>
