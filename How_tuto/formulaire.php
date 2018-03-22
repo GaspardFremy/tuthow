@@ -38,7 +38,7 @@
 	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 		
 		<div class="carousel-inner">
-			<div class="carousel-item active">
+			<div class="carousel-item active" data-interval="false">
 				<form action="" method="POST">
 
 					<div class="create_tuto ">
@@ -59,7 +59,7 @@
 				</form>
 			</div>
 
-			<div class="carousel-item">
+			<div class="carousel-item" data-interval="false">
 				<form action="" method="POST">
 					<div class="create_tuto ">
 						<div class="form-group">
@@ -103,13 +103,14 @@
 				
 			</div>
 		</div>
+
 		<ol class="carousel-indicators">		
 			    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 			    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 			    
 		</ol>
-		
-		<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+
+		<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev" >
 			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 		    <span class="sr-only">Previous</span>
 	  	</a>
