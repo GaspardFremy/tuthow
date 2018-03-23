@@ -8,6 +8,7 @@
 
     </div>
     <div class="col-md-11 col-sm-12 body-container">
+        <input type='text' name='search' value='' class='auto' size=40 placeholder="Que recherchez-vous aujourd'hui sur TutHow ?"></p><input type="button" value="Search"></button>
         <h4 class="category-title">Récent</h4>
 
         <div class="swiper-container">
@@ -67,126 +68,126 @@
                     <!-- Card -->
                     <article class="card lg-card animated position-relative">
 
-                    <div class="img-container">
-                        <img class="card-img-top card-img-rounded img-fluid" src="./public/img/tutos-header-img/<?= htmlspecialchars($data['id'])?>.jpg"/>
+                        <div class="img-container">
+                            <img class="card-img-top card-img-rounded img-fluid" src="./public/img/tutos-header-img/<?= htmlspecialchars($data['id'])?>.jpg"/>
 
-                        <a href="./controller/bookmark.php?action=bookmark&tutoId=<?= $data['id']?>&userId=<?= $_SESSION['userId']?>">
-                            <div class="position-absolute bookmarked-icon" style="top : 0px; z-index:1000;">
-                                <?php if(isset($data['bookmark'])){
-                                    echo '<i class="fa fal fa-bookmark"></i>';
-                                }
-                                else {
-                                    echo '<i class="fa far fa-bookmark"></i>';
-                                }
-                                ?>
+                            <a href="./controller/bookmark.php?action=bookmark&tutoId=<?= $data['id']?>&userId=<?= $_SESSION['userId']?>">
+                                <div class="position-absolute bookmarked-icon" style="top : 0px; z-index:1000;">
+                                    <?php if(isset($data['bookmark'])){
+                                        echo '<i class="fa fal fa-bookmark"></i>';
+                                    }
+                                    else {
+                                        echo '<i class="fa far fa-bookmark"></i>';
+                                    }
+                                    ?>
+                                </div>
+                            </a>
+                        </div>
+                        <a href="index.php?action=tuto&id=<?= $data['id']?>">
+                            <div class="card-block">
+                                <h6 class="card-title"><?php echo htmlspecialchars(substr($data['title'],0,80));?></h6>
+                                <p class="card-text"><?= htmlspecialchars(substr($data['description'], 0,180)); ?> </p>
+                                <div class="d-flex justify-content-between">
+                                    <span class="upvote"> <?= htmlspecialchars($data['upvote'])?> upvote</span>
+                                    <h6 class="level <?= htmlspecialchars($data['color'])?>"><?= htmlspecialchars($data['tutoLevel'])?></h6>
+                                    <span class="time "><img src="./public/img/icon/timer-icon.png" class="mr-2"><?= htmlspecialchars($data['durationNumber'])?> <?= htmlspecialchars($data['durationType'])?></span>
+                                </div>
                             </div>
                         </a>
-                    </div>
-                    <a href="index.php?action=tuto&id=<?= $data['id']?>">
-                        <div class="card-block">
-                            <h6 class="card-title"><?php echo htmlspecialchars(substr($data['title'],0,80));?></h6>
-                            <p class="card-text"><?= htmlspecialchars(substr($data['description'], 0,180)); ?> </p>
-                            <div class="d-flex justify-content-between">
-                                <span class="upvote"> <?= htmlspecialchars($data['upvote'])?> upvote</span>
-                                <h6 class="level <?= htmlspecialchars($data['color'])?>"><?= htmlspecialchars($data['tutoLevel'])?></h6>
-                                <span class="time "><img src="./public/img/icon/timer-icon.png" class="mr-2"><?= htmlspecialchars($data['durationNumber'])?> <?= htmlspecialchars($data['durationType'])?></span>
-                            </div>
-                        </div>
-                    </a>
-                    </article><?php
-                }
-                $largeTuto->closeCursor();?>
-            </div>
-
-            <div class="col-6 pdg-10">
-                <?php while ($data = $halfLargeTuto->fetch())
-
-                {?>
-                    <article class="card animated">
-                        <div class="row">
-                            <div class="col-6">
-                                <a href="index.php?action=tuto&id=<?= $data['id']?>">
-                                    <div class="card-block">
-                                        <h6 class="card-title"><?php echo htmlspecialchars(substr($data['title'],0,80));?></h6>
-                                        <p class="card-text"><?= htmlspecialchars(substr($data['description'], 0,127));?>... </p>
-                                        <div class="d-flex justify-content-between">
-                                            <span class="upvote"> <?= htmlspecialchars($data['upvote'])?> upvote</span>
-                                            <h6 class="level <?= htmlspecialchars($data['color'])?>"><?= htmlspecialchars($data['tutoLevel'])?></h6>
-                                            <span class="time "><img src="./public/img/icon/timer-icon.png" class="mr-2"><?= htmlspecialchars($data['durationNumber'])?> <?= htmlspecialchars($data['durationType'])?></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-6 pdg-0">
-                                <div class="img-bg" style="height: 100%; background-image: url(./public/img/tutos-header-img/<?= htmlspecialchars($data['id'])?>.jpg); background-size: cover;"></div>
-                            </div>
-                        </div>
-                    </article><?php
-                }
-                $halfLargeTuto->closeCursor();?>
-
-                <div class="row" style="padding-top: 17px;">
-                    <div class="col-6 pdg-10">
-                        <?php while ($data = $quarterTuto->fetch())
-
-                        {?>
-                            <article class="card animated">
-                                <a href="index.php?action=tuto&id=<?= $data['id']?>">
-                                    <div class="card-block">
-                                        <h6 class="card-title"><?php echo htmlspecialchars(substr($data['title'],0,80));?></h6>
-                                        <p class="card-text"><?= htmlspecialchars(substr($data['description'], 0,90));?>...</p>
-                                        <div class="d-flex justify-content-between">
-                                            <span class="upvote"> <?= htmlspecialchars($data['upvote'])?> upvote</span>
-                                            <h6 class="level <?= htmlspecialchars($data['color'])?>"><?= htmlspecialchars($data['tutoLevel'])?></h6>
-                                            <span class="time "><img src="./public/img/icon/timer-icon.png" class="mr-2"><?= htmlspecialchars($data['durationNumber'])?> <?= htmlspecialchars($data['durationType'])?></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article><?php
-                        }
-                        $quarterTuto->closeCursor();?>
-
-
-                    </div>
-                    <div class="col-6 pdg-10">
-                        <?php while ($data = $halfQuarterTutos->fetch())
-
-                        {?>
-                            <article class="card animated">
-                                <a href="index.php?action=tuto&id=<?= $data['id']?>">
-                                    <div class="card-block">
-                                        <h6 class="card-title"><?php echo htmlspecialchars(substr($data['title'],0,80));?></h6>
-                                        <h6 class="level <?= htmlspecialchars($data['color'])?> float-left"><?= htmlspecialchars($data['tutoLevel'])?></h6>
-                                        <span class="time float-right"><img src="./public/img/icon/timer-icon.png" class="mr-2"><?= htmlspecialchars($data['durationNumber'])?> <?= htmlspecialchars($data['durationType'])?></span>
-                                    </div>
-                                </a>
-                            </article><?php
-                        }
-                        $halfQuarterTutos->closeCursor();?>
-
-
-                        <?php while ($data = $scdHalfQuarterTutos->fetch())
-
-                        {?>
-                            <article class="card animated" style="margin-top: 15px;">
-                                <a href="index.php?action=tuto&id=<?= $data['id']?>">
-                                    <div class="card-block">
-                                        <h6 class="card-title"><?php echo htmlspecialchars(substr($data['title'],0,80));?></h6>
-                                    </div>
-                                </a>
-                            </article><?php
-                        }
-                        $scdHalfQuarterTutos->closeCursor();?>
-                    </div>
+                        </article><?php
+                    }
+                    $largeTuto->closeCursor();?>
                 </div>
-            </div>
 
-        </div>
-    </div>
-</div>
+                <div class="col-6 pdg-10">
+                    <?php while ($data = $halfLargeTuto->fetch())
+
+                    {?>
+                        <article class="card animated">
+                            <div class="row">
+                                <div class="col-6">
+                                    <a href="index.php?action=tuto&id=<?= $data['id']?>">
+                                        <div class="card-block">
+                                            <h6 class="card-title"><?php echo htmlspecialchars(substr($data['title'],0,80));?></h6>
+                                            <p class="card-text"><?= htmlspecialchars(substr($data['description'], 0,127));?>... </p>
+                                            <div class="d-flex justify-content-between">
+                                                <span class="upvote"> <?= htmlspecialchars($data['upvote'])?> upvote</span>
+                                                <h6 class="level <?= htmlspecialchars($data['color'])?>"><?= htmlspecialchars($data['tutoLevel'])?></h6>
+                                                <span class="time "><img src="./public/img/icon/timer-icon.png" class="mr-2"><?= htmlspecialchars($data['durationNumber'])?> <?= htmlspecialchars($data['durationType'])?></span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6 pdg-0">
+                                    <div class="img-bg" style="height: 100%; background-image: url(./public/img/tutos-header-img/<?= htmlspecialchars($data['id'])?>.jpg); background-size: cover;"></div>
+                                </div>
+                            </div>
+                            </article><?php
+                        }
+                        $halfLargeTuto->closeCursor();?>
+
+                        <div class="row" style="padding-top: 17px;">
+                            <div class="col-6 pdg-10">
+                                <?php while ($data = $quarterTuto->fetch())
+
+                                {?>
+                                    <article class="card animated">
+                                        <a href="index.php?action=tuto&id=<?= $data['id']?>">
+                                            <div class="card-block">
+                                                <h6 class="card-title"><?php echo htmlspecialchars(substr($data['title'],0,80));?></h6>
+                                                <p class="card-text"><?= htmlspecialchars(substr($data['description'], 0,90));?>...</p>
+                                                <div class="d-flex justify-content-between">
+                                                    <span class="upvote"> <?= htmlspecialchars($data['upvote'])?> upvote</span>
+                                                    <h6 class="level <?= htmlspecialchars($data['color'])?>"><?= htmlspecialchars($data['tutoLevel'])?></h6>
+                                                    <span class="time "><img src="./public/img/icon/timer-icon.png" class="mr-2"><?= htmlspecialchars($data['durationNumber'])?> <?= htmlspecialchars($data['durationType'])?></span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        </article><?php
+                                    }
+                                    $quarterTuto->closeCursor();?>
+
+
+                                </div>
+                                <div class="col-6 pdg-10">
+                                    <?php while ($data = $halfQuarterTutos->fetch())
+
+                                    {?>
+                                        <article class="card animated">
+                                            <a href="index.php?action=tuto&id=<?= $data['id']?>">
+                                                <div class="card-block">
+                                                    <h6 class="card-title"><?php echo htmlspecialchars(substr($data['title'],0,80));?></h6>
+                                                    <h6 class="level <?= htmlspecialchars($data['color'])?> float-left"><?= htmlspecialchars($data['tutoLevel'])?></h6>
+                                                    <span class="time float-right"><img src="./public/img/icon/timer-icon.png" class="mr-2"><?= htmlspecialchars($data['durationNumber'])?> <?= htmlspecialchars($data['durationType'])?></span>
+                                                </div>
+                                            </a>
+                                            </article><?php
+                                        }
+                                        $halfQuarterTutos->closeCursor();?>
+
+
+                                        <?php while ($data = $scdHalfQuarterTutos->fetch())
+
+                                        {?>
+                                            <article class="card animated" style="margin-top: 15px;">
+                                                <a href="index.php?action=tuto&id=<?= $data['id']?>">
+                                                    <div class="card-block">
+                                                        <h6 class="card-title"><?php echo htmlspecialchars(substr($data['title'],0,80));?></h6>
+                                                    </div>
+                                                </a>
+                                                </article><?php
+                                            }
+                                            $scdHalfQuarterTutos->closeCursor();?>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
 
 
 
-<?php $content = ob_get_clean(); ?>
+                    <?php $content = ob_get_clean(); ?>
 
-<?php require('template.php'); ?>
+                    <?php require('template.php'); ?>

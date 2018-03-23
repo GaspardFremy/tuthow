@@ -12,7 +12,7 @@ if (isset($_GET['term'])){
 		$conn = new PDO("mysql:host=".DB_SERVER.";port=3306;dbname=".DB_NAME, DB_USER, DB_PASSWORD);
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
-		$stmt = $conn->prepare('SELECT tutos FROM title WHERE tutos LIKE :term LIMIT 3');
+		$stmt = $conn->prepare('SELECT * FROM tutos WHERE title LIKE :term LIMIT 3');
 		$stmt->execute(array('term' => '%'.$_GET['term'].'%'));
 		
 		while($row = $stmt->fetch()) {
