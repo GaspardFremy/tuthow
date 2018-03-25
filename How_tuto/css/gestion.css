@@ -1,0 +1,117 @@
+h1 {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+.management{
+	display: flex;
+
+}
+
+.left_side{
+	width: 40%;
+    margin-right: 2rem
+}
+
+.left_side input {
+	display: block;
+	width: 50%;
+}
+
+.input_management input{
+	width: 100%;
+	margin-bottom: 0.5rem;
+	height: 2.3rem;
+	border-radius: 2px;
+}
+
+.input_management input[type="text"]{
+	border: 1px solid #35BD9A;
+    padding: 1rem;
+}
+
+.input_management input[type="button"]{
+	background: #35BD9A;
+    color: #fff;
+    border: none;
+}
+
+.social{
+	display: flex;
+	margin-bottom: 5rem;
+}
+
+.social input {
+	border: 1px solid #35BD9A;
+}
+
+.social button {
+	border: 1px solid #35BD9A;
+	border-radius: 2px;
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+}
+
+.facebook {
+	margin-right: 2rem;
+}
+
+.form-control {
+	font-size: 12px;
+}
+
+.input_management input:last-child {
+	margin-bottom: 1.5rem;
+}
+
+.notif {
+	width: 60%;
+}
+
+.notif input{
+	border: 1px solid #35BD9A;
+	border-radius: 2px;
+}
+
+.notif button{
+	border: 1px solid #35BD9A;
+	border-radius: 2px;
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+}
+
+.options input {
+	border: 1px solid #35BD9A;
+	border-radius: 2px;
+}
+
+.options button {
+	border: 1px solid #35BD9A;
+	border-radius: 2px;
+	border-bottom-right-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.right_side {
+	width: 25%;
+}
+
+.right_side img {
+	width: 100%;
+}
+
+.right_side input[type="button"]{
+	background: #35BD9A;
+    color: #fff;
+    border: none;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    height: 2rem;
+    border-radius: 2px;
+    width: 100%;
+}
+
+.right_side textarea {
+	width: 100%;
+	border: 1px solid #35BD9A;
+}

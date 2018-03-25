@@ -17,9 +17,7 @@
 
 	<link rel="stylesheet" type="text/css" href="css/form.css"/>
 	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"/>
-	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
-
+	
 	<!-- JQUERY links -->
 	<script src="https://code.jquery.com/jquery-3.3.1.js"
 	  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
