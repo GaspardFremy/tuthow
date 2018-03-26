@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<title>Formulaire</title>
+	<title>Gestion de Compte</title>
 
 	<!-- Bootstrap CSS -->
 
@@ -55,13 +55,13 @@
 					<div class="input-group facebook">
 						<input type="text" class="form-control" placeholder="Login with Facebook" aria-label="Recipient's username" aria-describedby="basic-addon2">
 						<div class="input-group-append">
-					    	<button class="btn btn-outline-secondary" type="button">F</button>
+					    	<button class="btn btn-outline-secondary" type="button"><i class="fa fa-facebook" aria-hidden="true"></i></button>
 					  	</div>
 					</div>
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="Login with Google" aria-label="Recipient's username" aria-describedby="basic-addon2">
 						<div class="input-group-append">
-					    	<button class="btn btn-outline-secondary" type="button">G</button>
+					    	<button class="btn btn-outline-secondary" type="button"><i class="fa fa-google" aria-hidden="true"></i></button>
 					  	</div>
 					</div>
 				</div>
