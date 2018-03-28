@@ -47,29 +47,23 @@
                         <?= $like?>
                     </div>
                 </div>
-
-
-
-
             </div>
-
         </div>
-
     </div>
 </div>
+
 <div class="container">
     <div class="col-md-11 col-sm-12 body-container">
         <div class="container-fluid">
             <h2><?= $tuto['title']?></h2>
             <h5><?= $tuto['description']?></h5>
-            <div class="content row">
+            <div class="content ro">
                 <p><?= $tuto['content']?></p>
             </div>
         </div>
     </div>
 
-
-    <div class="d-flex justify-content-center my-5 row ">
+    <div class="d-flex justify-content-center my-5 ro">
         <div class="d-flex flex-column align-items-center ">
             <h6 >Was this tuto usefull?</h6>
 
@@ -117,34 +111,91 @@
     </div>
 
 
+    <div class="tuto-container">
+        <form action="./index.php?action=addComment&id=<?=$tuto['id']?>&pseudo=<?= $_SESSION['pseudo']?>" method="post">
+            <div>
+                <label for="comment">Comments</label><br />
+                <textarea id="comment" class="comment-aera p-3" name="comment" placeholder="Your comment"></textarea>
+            </div>
 
+            <div>
+                <input type="submit" class="comment-submit mb-3 mt-2" data-toggle="modal" data-target="#exampleModal" value="submit"/>
+            </div>
 
+        </form>
 
-    <h2>Comments</h2>
+        <div class="com-container">
+            <?php
+            while ($comment = $comments->fetch())
+            {
+                ?>
+                <div class="com-content m-3">
+                    <div class="com-info d-flex align-items-center">
+                        <img class="profile-thumb rounded" src="./public/img/default-profile.png" alt="">
 
-    <form action="./index.php?action=addComment&id=<?=$tuto['id']?>&pseudo=<?= $_SESSION['pseudo']?>" method="post">
-        <div>
-            <label for="comment">Comments</label><br />
-            <textarea id="comment" name="comment"></textarea>
+                        <div class="d-flex align-items-start flex-column ml-3">
+                            <p class="mb-0 pseudo"><strong><?= htmlspecialchars($comment['pseudo']) ?></strong></p>
+
+                             <p class="mb-0"><?= $comment['commentDateFr'] ?></p>
+                        </div>
+                    </div>
+                    <p class="comment"><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+                </div>
+                <hr>
+                <?php
+            }
+            ?>
         </div>
-
-        <div>
-            <input type="submit" data-toggle="modal" data-target="#exampleModal"/>
-        </div>
-
-    </form>
-
-    <?php
-    while ($comment = $comments->fetch())
-    {
-        ?>
-        <p><strong><?= htmlspecialchars($comment['pseudo']) ?></strong> le <?= $comment['commentDateFr'] ?></p>
-        <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
-        <?php
-    }
-    ?>
-
+    </div>
 </div>
+
+    <div class="row">
+        <div class="col-1 no-gutter">
+        </div>
+        <div class="col-md-11 col-sm-12 mt-4">
+
+            <h4 class="category-title">Discover also</h4>
+
+            <div class="row">
+                <?php  while ($data = $recommendedTutos->fetch()){ ?>
+                    <div class="col-md-3 pt-2 my-2">
+                        <!-- Card -->
+                        <article class="card animated">
+                            <div class="img-container">
+                                <img class="card-img-top card-img-rounded img-fluid" src="./public/img/tutos-header-img/<?php if(!empty($data['headerImg'])){echo htmlspecialchars($data['headerImg']);} else {echo "default.jpg";} ?>"/>
+                                <a <?php if (!isset($_SESSION['userId'])){echo 'data-toggle="modal" data-target="#exampleModal"';}?> href="./controller/bookmark.php?action=bookmark&tutoId=<?= $data['id']?>&userId=<?= $_SESSION['userId']?>">
+                                    <div class="position-absolute bookmarked-icon" style="top : 0px; z-index:1000;">
+                                        <?php if(isset($data['bookmark'], $_SESSION['userId'] ) && $data['bookmarkUser'] === $_SESSION['userId']){
+                                            echo '<i class="fa fal fa-bookmark"></i>';
+                                        }
+                                        else {
+                                            echo '<i class="fa far fa-bookmark"></i>';
+                                        }
+                                        ?>
+                                    </div>
+                                </a>
+                            </div>
+                            <a href="index.php?action=tuto&id=<?= $data['id']?>">
+                                <div class="card-block">
+                                    <div class="card-block">
+                                        <h6 class="card-title"><?php echo htmlspecialchars(substr($data['title'],0,33));?> <?php if (iconv_strlen($data['title']) > 30  ) {echo "...";}?></h6>
+                                        <p class="card-text"><?= htmlspecialchars(substr($data['description'], 0,110)); ?> <?php if (iconv_strlen($data['description']) > 100) {echo "...";}?></p>
+                                        <div class="d-flex justify-content-between">
+                                            <span class="upvote"> <?= htmlspecialchars($data['upvote'])?> upvote</span>
+                                            <h6 class="level <?= htmlspecialchars($data['color'])?>"><?= htmlspecialchars($data['tutoLevel'])?></h6>
+                                            <span class="time "><img src="./public/img/icon/timer-icon.png" class="mr-2"><?= htmlspecialchars($data['durationNumber'])?> <?= htmlspecialchars($data['durationType'])?></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+                    </div>
+                <?php } $recommendedTutos->closeCursor(); ?>
+            </div>
+        </div>
+    </div>
+
+
 </div>
 
 

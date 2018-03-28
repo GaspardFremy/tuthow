@@ -25,8 +25,13 @@ body h5, p, td {
 	margin-bottom: 40px;
 }
 
-.row {
+.ro {
 	max-width: 70%;
+	margin-left: 10px;
+}
+
+.tuto-container {
+    max-width: 70%;
 	margin-left: 10px;
 }
 
@@ -53,4 +58,37 @@ td:nth-child(2) {
 .share-icons {
     width: 50px;
     margin: 5px;
+}
+
+
+/* COMMENT */
+
+.profile-thumb {
+	height: 50px;
+	width: 50px;
+}
+
+.comment-aera {
+    width: 100%;
+    background-color: transparent;
+    border-radius: 4px;
+    border-color: #2EBBB2;
+}
+
+.comment-submit {
+    background-color: transparent;
+    border-radius: 4px;
+    border-color: #2EBBB2;
+}
+
+.com-container {
+	border-radius: 4px;
+	border: 1px solid #2EBBB2;
+}
+
+.comment {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	color: #555555;
+	line-height: 24px;
 }

@@ -160,10 +160,6 @@
        421: {
          slidesPerView: 1,
          spaceBetween: 20,
-       },
-       320: {
-         slidesPerView: 1,
-         spaceBetween: 10,
        }
      }
    });

@@ -49,7 +49,7 @@ if (isset($_POST['form-login']))
 
   function dbConnect()
   {
-      $db = new PDO('mysql:host=localhost;dbname=tuthow;charset=utf8', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+      $db = new PDO('mysql:host=mysql-tuthow.alwaysdata.net;dbname=tuthow_bdd;charset=utf8', 'tuthow', 'pogona123alwaysdata', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
       return $db;
   }
 

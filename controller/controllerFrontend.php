@@ -22,6 +22,7 @@ function tuto()
     $comments = getComments($_GET['id']);
     $like = getLikes($_GET['id']);
     $dislike = getDislikes($_GET['id']);
+    $recommendedTutos = getRecommendedTutos();
 
     require('view/frontend/tuto.php');
 }

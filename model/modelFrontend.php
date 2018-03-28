@@ -6,7 +6,7 @@ function getSliderTutos()
 {
     $db = dbConnect();
 
-    $sliderTutos = $db->query('SELECT tutos.*, tutosLevels.tutoLevel, tutosLevels.color, durationTypes.durationType, bookmarks.id AS bookmark
+    $sliderTutos = $db->query('SELECT tutos.*, tutosLevels.tutoLevel, tutosLevels.color, durationTypes.durationType, bookmarks.id AS bookmark, bookmarks.userId AS bookmarkUser
     FROM tutos
     INNER JOIN tutosLevels ON tutos.levelId = tutosLevels.id
     INNER JOIN tutosLayouts ON tutosLayouts.id = tutos.layoutId
@@ -24,7 +24,7 @@ function getLargeTuto()
 {
     $db = dbConnect();
 
-    $largeTuto = $db->query('SELECT tutos.*, tutosLevels.tutoLevel, tutosLevels.color, durationTypes.durationType, bookmarks.id AS bookmark
+    $largeTuto = $db->query('SELECT tutos.*, tutosLevels.tutoLevel, tutosLevels.color, durationTypes.durationType, bookmarks.id AS bookmark, bookmarks.userId AS bookmarkUser
     FROM tutos
     INNER JOIN tutosLevels ON tutosLevels.id = tutos.levelId
     INNER JOIN tutosLayouts ON tutosLayouts.id = tutos.layoutId
@@ -166,6 +166,26 @@ function postComment($tutoId, $pseudo, $comment)
     $affectedLines = $comments->execute(array($tutoId, $pseudo, $comment));
 
     return $affectedLines;
+}
+
+function getRecommendedTutos()
+{
+    $db = dbConnect();
+
+    $recommendedTutos = $db->query('SELECT tutos.*, tutosLevels.tutoLevel, tutosLevels.color, durationTypes.durationType, bookmarks.id AS bookmark, bookmarks.userId AS bookmarkUser
+    FROM tutos
+    INNER JOIN tutosLevels ON tutos.levelId = tutosLevels.id
+    INNER JOIN tutosLayouts ON tutosLayouts.id = tutos.layoutId
+    INNER JOIN durationTypes ON durationTypes.id = tutos.durationTypeId
+    LEFT OUTER JOIN bookmarks ON bookmarks.tutoId = tutos.id
+
+    WHERE tutosLayouts.id = 1
+
+    ORDER BY createdDate
+
+    LIMIT 0, 8');
+
+    return $recommendedTutos;
 }
 
 // BOOKMARKED
